@@ -9,5 +9,5 @@ RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 RewriteRule ^/?$ /current/$1 [R]
 
 # redirect /current/ to actual path of current version
-RewriteRule ^/?current(/[A-Za-z0-9\-/.]*)?$ /v1.0.0-beta.3$1 [R=307,L]
+RewriteRule ^/?current(/[A-Za-z0-9\-/.]*)?$ /v1.0.0-beta.4$1 [R=307,L]
 </IfModule>
