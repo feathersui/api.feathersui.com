@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><!-- use theme color or fallback -->
+<!--use textcolor from settings, otherwise create a contrasting color to theme color-->
+<head><meta charset="utf-8"/><link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-select.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400" rel="stylesheet" type="text/css"/><link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"/><script src="../../jquery-1.9.1.min.js"></script><script src="../../bootstrap/js/bootstrap.min.js"></script><script src="../../bootstrap/js/bootstrap-select.min.js"></script><link href="../../styles.css" rel="stylesheet"/><link href="../../extra-styles.css" rel="stylesheet"/><link href="../../haxe-nav.css" rel="stylesheet"/><script>var dox = {rootPath: "../../",platforms: ["feathers"]};</script><script src="../../nav.js"></script><script src="../../index.js"></script><link rel="icon" href="../../favicon.ico" type="image/x-icon"/><title>feathers.data.IFlatCollection - Feathers UI API Reference (Haxe/OpenFL)</title><meta name="description" content="Interface for collections of flat data, such as arrays or other lists."/></head><body><style>
+.navbar .brand {
+	display: inline-block;
+	float: none;
+	text-shadow: 0 0 0 transparent;
+</style><nav class="nav"><div class="navbar navbar-static-top"><div class="navbar-inner" style="background:#FAFAFA; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" style="color:#292522" href="../../">Feathers UI API Reference (Haxe/OpenFL)</a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="icon-search"></i></span><input id="search" type="text" placeholder="Filter (Ctrl+P)" autocomplete="off"/></div></form></div><div class="well sidebar-nav" id="explorer"><div id="nav"></div></div></div><div class="span9"><div class="page-header"><span class="viewsource"><a href="https://github.com/BowlerHatLLC/feathersui-openfl/tree/master/src/feathers/data/IFlatCollection.hx" class="btn btn-medium"><i class="fa fa-eye"></i> View source</a></span><h1><small>interface</small> IFlatCollection&lt;<span class="type">T</span>&gt;</h1><h4><small>package <a href="../../feathers/data/index.html">feathers.data</a></small></h4>    <h4><small>extends <span class="type">IEventDispatcher</span></small></h4><h4><small> <span class="muted">extended by </span><a class="type" title="feathers.data.ArrayCollection - Wraps an Array in the common IFlatCollection API used for data collections by many Feathers UI controls, including ListView and TabBarAvailable since 1." href="../../feathers/data/ArrayCollection.html">ArrayCollection</a></small></h4></div><div class="body"><div class="doc doc-main"><p>Interface for collections of flat data, such as arrays or other lists.</p><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div><h3 class="section">Variables</h3><div class="fields"><div class="field "><a name="length"></a><h3 class="anchor"><code><span class="label label-meta label-meta-flash.property" title="">@:flash.property</span><span class="label">read only</span><a href="#length"><span class="identifier">length</span></a>:<span class="type">Int</span></code></h3><div class="doc"><p>The number of items in the collection.</p>
+<p>The following example iterates over the items in a collection:</p>
+<pre><code class="prettyprint hx">for(i in 0...collection.length) {
+	var item = collection.get(i);
+}</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div></div><div class="field "><a name="filterFunction"></a><h3 class="anchor"><code><span class="label label-meta label-meta-flash.property" title="">@:flash.property</span><a href="#filterFunction"><span class="identifier">filterFunction</span></a>:<span class="type">T</span>&nbsp;&#8209;&gt;&nbsp;<span class="type">Bool</span></code></h3><div class="doc"><p>A function to determine if each item in the collection should be
+included or excluded from visibility through APIs like <code>length</code> and
+<code>get()</code>.</p>
+<p>The following example filters a collection of strings by searching for
+a substring at the beginning:</p>
+<pre><code class="prettyprint hx">collection.filterFunction = (a:String) =&gt;
+{
+	return StringTools.startsWith(a.toLowerCase(), "john");
+};</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/events/FlatCollectionEvent.html#FILTER_CHANGE">feathers.data.FlatCollectionEvent.FILTER_CHANGE</a></code></p></div></li></ul></div></div><div class="field "><a name="sortCompareFunction"></a><h3 class="anchor"><code><span class="label label-meta label-meta-flash.property" title="">@:flash.property</span><a href="#sortCompareFunction"><span class="identifier">sortCompareFunction</span></a>:(<span class="type">T</span>, <span class="type">T</span>)&nbsp;&#8209;&gt;&nbsp;<span class="type">Int</span></code></h3><div class="doc"><p>A function to compare each item in the collection to determine the order
+when sorted.</p>
+<p>The return value should be <code>-1</code> if the first item should appear before
+the second item when the collection is sorted. The return value should
+be <code>1</code> if the first item should appear after the second item when the
+collection is sorted. Finally, the return value should be <code>0</code> if both
+items have the same sort order.</p>
+<p>The following example sorts a collection of <code>Float</code> values:</p>
+<pre><code class="prettyprint hx">collection.sortCompareFunction = (a:Float, b:Float) =&gt;
+{
+	if (a &gt; b) {
+		return 1;
+	} else if (a &lt; b) {
+		return -1;
+	}
+	return 0;
+};</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/events/FlatCollectionEvent.html#SORT_CHANGE">feathers.data.FlatCollectionEvent.SORT_CHANGE</a></code></p></div></li></ul></div></div></div><h3 class="section">Methods</h3><div class="fields"><div class="field "><a name="add"></a><h3 class="anchor"><code><a href="#add"><span class="identifier">add</span></a>(<span style="white-space:nowrap">item:<span class="type">T</span></span>):<span class="type">Void</span></code></h3><div class="doc"><p>Inserts an item at the end of the collection, increasing the <code>length</code> by
+one.</p>
+<p>The following example adds an item to a collection:</p>
+<pre><code class="prettyprint hx">collection.add(object);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/events/FlatCollectionEvent.html#ADD_ITEM">feathers.data.FlatCollectionEvent.ADD_ITEM</a></code></p></div></li></ul></div></div><div class="field "><a name="addAll"></a><h3 class="anchor"><code><a href="#addAll"><span class="identifier">addAll</span></a>(<span style="white-space:nowrap">collection:<a class="type" title="feathers.data.IFlatCollection - Interface for collections of flat data, such as arrays or other lists." href="../../feathers/data/IFlatCollection.html">IFlatCollection</a>&lt;<span class="type">T</span>&gt;</span>):<span class="type">Void</span></code></h3><div class="doc"><p>Adds all items from one collection to another collection.</p>
+<p>The following example adds a collection of items to another collection:</p>
+<pre><code class="prettyprint hx">collection1.addAll(collection2);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div></div><div class="field "><a name="addAllAt"></a><h3 class="anchor"><code><a href="#addAllAt"><span class="identifier">addAllAt</span></a>(<span style="white-space:nowrap">collection:<a class="type" title="feathers.data.IFlatCollection - Interface for collections of flat data, such as arrays or other lists." href="../../feathers/data/IFlatCollection.html">IFlatCollection</a>&lt;<span class="type">T</span>&gt;,</span> <span style="white-space:nowrap">index:<span class="type">Int</span></span>):<span class="type">Void</span></code></h3><div class="doc"><p>Adds all items from one collection to another collection.</p>
+<p>The following example adds a collection of items to another collection:</p>
+<pre><code class="prettyprint hx">collection1.addAllAt(collection2, 0);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div></div><div class="field "><a name="addAt"></a><h3 class="anchor"><code><a href="#addAt"><span class="identifier">addAt</span></a>(<span style="white-space:nowrap">item:<span class="type">T</span>,</span> <span style="white-space:nowrap">index:<span class="type">Int</span></span>):<span class="type">Void</span></code></h3><div class="doc"><p>Inserts an item into the collection at the specified index, increasing
+the <code>length</code> by one.</p>
+<p>The following example adds an item to the start of a collection:</p>
+<pre><code class="prettyprint hx">collection.addAt(object, 0);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/events/FlatCollectionEvent.html#ADD_ITEM">feathers.data.FlatCollectionEvent.ADD_ITEM</a></code></p></div></li></ul></div></div><div class="field "><a name="contains"></a><h3 class="anchor"><code><a href="#contains"><span class="identifier">contains</span></a>(<span style="white-space:nowrap">item:<span class="type">T</span></span>):<span class="type">Bool</span></code></h3><div class="doc"><p>Determines if the collection contains the specified item.</p>
+<p>The following example checks if a collection contains an item:</p>
+<pre><code class="prettyprint hx">var item = { text: "New Item" };
+collection.addAt(item, 0);
+
+var contained = collection.contains(item); // true</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div></div><div class="field "><a name="get"></a><h3 class="anchor"><code><a href="#get"><span class="identifier">get</span></a>(<span style="white-space:nowrap">index:<span class="type">Int</span></span>):<span class="type">T</span></code></h3><div class="doc"><p>Returns the item at the specified index in the collection.</p>
+<p>The following example iterates over the items in a collection:</p>
+<pre><code class="prettyprint hx">for(i in 0...collection.length) {
+	var item = collection.get(i);
+}</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div></div><div class="field "><a name="indexOf"></a><h3 class="anchor"><code><a href="#indexOf"><span class="identifier">indexOf</span></a>(<span style="white-space:nowrap">item:<span class="type">T</span></span>):<span class="type">Int</span></code></h3><div class="doc"><p>Returns the index of the specified item, or <code>-1</code> if the item is not in
+the collection.</p>
+<p>The following example gets the index of an item in the collection:</p>
+<pre><code class="prettyprint hx">var item = { text: "New Item" };
+collection.addAt(item, 0);
+
+var index = collection.indexOf(item); // 0</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div></div><div class="field "><a name="iterator"></a><h3 class="anchor"><code><a href="#iterator"><span class="identifier">iterator</span></a>():<span class="type">Iterator</span>&lt;<span class="type">T</span>&gt;</code></h3><div class="doc"><p>Creates an iterator for the collection.</p><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div></div><div class="field "><a name="refresh"></a><h3 class="anchor"><code><a href="#refresh"><span class="identifier">refresh</span></a>():<span class="type">Void</span></code></h3><div class="doc"><p>Refreshes the collection using the <code>filterFunction</code> or
+<code>sortCompareFunction</code> without passing in a new values for these
+properties. Useful when either of these functions relies on external
+variables that have changed.</p>
+<p>The following example refreshes the collection:</p>
+<pre><code class="prettyprint hx">var includeAll = true;
+collection.filterFunction = (item) =&gt;
+{
+	if(includeAll)
+	{
+		return true;
+	}
+	return false;
+
+};
+includeAll = false;
+collection.refresh();</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div></div><div class="field "><a name="remove"></a><h3 class="anchor"><code><a href="#remove"><span class="identifier">remove</span></a>(<span style="white-space:nowrap">item:<span class="type">T</span></span>):<span class="type">Void</span></code></h3><div class="doc"><p>Removes a specific item from the collection, decreasing the <code>length</code> by
+one, if the item is in the collection.</p>
+<p>The following example removes an item from a collection:</p>
+<pre><code class="prettyprint hx">var item = { text: "New Item" };
+collection.add(item);
+collection.remove(item);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/events/FlatCollectionEvent.html#REMOVE_ITEM">feathers.data.FlatCollectionEvent.REMOVE_ITEM</a></code></p></div></li></ul></div></div><div class="field "><a name="removeAll"></a><h3 class="anchor"><code><a href="#removeAll"><span class="identifier">removeAll</span></a>():<span class="type">Void</span></code></h3><div class="doc"><p>Removes all items from the collection, decreasing its length to zero.</p>
+<p>The following example removes all items from a collection:</p>
+<pre><code class="prettyprint hx">collection.removeAll();</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/events/FlatCollectionEvent.html#REMOVE_ALL">feathers.data.FlatCollectionEvent.REMOVE_ALL</a></code></p></div></li></ul></div></div><div class="field "><a name="removeAt"></a><h3 class="anchor"><code><a href="#removeAt"><span class="identifier">removeAt</span></a>(<span style="white-space:nowrap">index:<span class="type">Int</span></span>):<span class="type">T</span></code></h3><div class="doc"><p>Removes an item from the collection at the specified index, decreasing
+the <code>length</code> by one.</p>
+<pre><code class="prettyprint hx">var item = { text: "New Item" };
+collection.addAt(item, 0);
+collection.removeAt(0);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/events/FlatCollectionEvent.html#REMOVE_ITEM">feathers.data.FlatCollectionEvent.REMOVE_ITEM</a></code></p></div></li></ul></div></div><div class="field "><a name="reset"></a><h3 class="anchor"><code><span class="label label-meta label-meta-value" title="Used to store default values for fields and function arguments.">@:value({ collection : null })</span><a href="#reset"><span class="identifier">reset</span></a>(<span style="white-space:nowrap">?collection:<a class="type" title="feathers.data.IFlatCollection - Interface for collections of flat data, such as arrays or other lists." href="../../feathers/data/IFlatCollection.html">IFlatCollection</a>&lt;<span class="type">T</span>&gt;</span>):<span class="type">Void</span></code></h3><div class="doc"><p>Removes all items from a collection and replaces it with the items from
+another collection.</p>
+<p>The following example resets a collection:</p>
+<pre><code class="prettyprint hx">collection1.reset(collection2);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/events/FlatCollectionEvent.html#RESET">feathers.data.FlatCollectionEvent.RESET</a></code></p></div></li></ul></div></div><div class="field "><a name="set"></a><h3 class="anchor"><code><a href="#set"><span class="identifier">set</span></a>(<span style="white-space:nowrap">index:<span class="type">Int</span>,</span> <span style="white-space:nowrap">item:<span class="type">T</span></span>):<span class="type">Void</span></code></h3><div class="doc"><p>Replaces the item at the specified index in the collection with a new
+item.</p>
+<p>The following example replaces an item in a collection:</p>
+<pre><code class="prettyprint hx">collection.set(0, object);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/events/FlatCollectionEvent.html#REPLACE_ITEM">feathers.data.FlatCollectionEvent.REPLACE_ITEM</a></code></p></div></li></ul></div></div><div class="field "><a name="updateAll"></a><h3 class="anchor"><code><a href="#updateAll"><span class="identifier">updateAll</span></a>():<span class="type">Void</span></code></h3><div class="doc"><p>Notifies components using the collection that all items should be
+considered changed.</p>
+<p>The following example updates all items in the collection:</p>
+<pre><code class="prettyprint hx">collection.updateAll();</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/data/IFlatCollection.html#updateAt">IFlatCollection.updateAt</a></code></p></div></li><li><div class="inline-content"><p><code><a href="../../feathers/events/FlatCollectionEvent.html#UPDATE_ALL">feathers.data.FlatCollectionEvent.UPDATE_ALL</a></code></p></div></li></ul></div></div><div class="field "><a name="updateAt"></a><h3 class="anchor"><code><a href="#updateAt"><span class="identifier">updateAt</span></a>(<span style="white-space:nowrap">index:<span class="type">Int</span></span>):<span class="type">Void</span></code></h3><div class="doc"><p>Notifies components using the collection that an item at the specified
+index has changed.</p>
+<p>The following example updates an item in the collection:</p>
+<pre><code class="prettyprint hx">collection.updateAt(0);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/data/IFlatCollection.html#updateAll">IFlatCollection.updateAll</a></code></p></div></li><li><div class="inline-content"><p><code><a href="../../feathers/events/FlatCollectionEvent.html#UPDATE_ITEM">feathers.data.FlatCollectionEvent.UPDATE_ITEM</a></code></p></div></li></ul></div></div></div></div></div></div></div><footer class="section site-footer" style="background:#FAFAFA"><div class="container"><div class="copyright"><p style="color:#292522"><a href="https://feathersui.com/" style="color:#292522">Feathers UI</a> — Copyright &copy; 2020 Bowler Hat LLC</p></div></div></footer><script src="../..//highlighter.js"></script><link href="../../highlighter.css" rel="stylesheet"/></body></html>
