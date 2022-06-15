@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"><!-- use theme color or fallback -->
+<!--use textcolor from settings, otherwise create a contrasting color to theme color-->
+<head><meta charset="utf-8"/><link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-select.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400" rel="stylesheet" type="text/css"/><link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"/><script src="../../jquery-1.9.1.min.js"></script><script src="../../bootstrap/js/bootstrap.min.js"></script><script src="../../bootstrap/js/bootstrap-select.min.js"></script><link href="../../styles.css" rel="stylesheet"/><link href="../../extra-styles.css" rel="stylesheet"/><link href="../../haxe-nav.css" rel="stylesheet"/><link href="../../dark-mode.css" rel="stylesheet"/><script>var dox = {rootPath: "../../",platforms: ["types"]};</script><script src="../../nav.js"></script><script src="../../index.js"></script><link rel="icon" href="../../favicon.ico" type="image/x-icon"/><title>feathers.layout.VerticalLayoutData - Feathers UI API Reference (Haxe/OpenFL)</title><meta name="description" content="Provides optional percentage sizing for children of containers that use
+&lt;code&gt;&lt;a href=&quot;../../feathers/layout/VerticalLayout.html#VerticalLayout&quot;&gt;VerticalLayout&lt;/a&gt;&lt;/code&gt;."/></head><body><script>/* Here to prevent flash of unstyled content */let systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;if ((!localStorage.theme && systemDarkMode) || localStorage.theme == "dark") {document.body.style.backgroundColor = "#111";document.body.style.opacity = "0";document.addEventListener("DOMContentLoaded", function(event) {toggleTheme();document.body.style.backgroundColor = "";document.body.style.opacity = "";});}</script><style>
+.navbar .brand {
+	display: inline-block;
+	float: none;
+	text-shadow: 0 0 0 transparent;
+</style><nav class="nav"><div class="navbar navbar-static-top"><div class="navbar-inner" style="background:#FAFAFA; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" style="color:#000000" href="../../">Feathers UI API Reference (Haxe/OpenFL)</a><a href="#" id="theme-toggle" style="color:#000000" onclick="toggleTheme()" title="Toggle Dark Mode"><i class="fa fa-moon-o"></i></a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="fa fa-search"></i></span><input id="search" type="text" placeholder="Filter (Ctrl+P)" autocomplete="off"/></div></form></div><div class="well sidebar-nav" id="explorer"><div id="nav"></div></div></div><div class="span9"><div class="page-header"><span class="viewsource"><a href="https://github.com/BowlerHatLLC/feathersui-openfl/tree/v1.0.0-rc.2/src/feathers/layout/VerticalLayoutData.hx" class="btn btn-medium"><i class="fa fa-eye"></i> View source</a></span><h1><small>class</small> VerticalLayoutData</h1><h4><small>package <a href="../../feathers/layout/index.html">feathers.layout</a></small></h4><h4><small>extends <span class="type">EventDispatcher</span></small></h4>    <h4><small>implements <a class="type" title="feathers.layout.ILayoutData - Optional, extra data used by some ILayout implementations." href="../../feathers/layout/ILayoutData.html">ILayoutData</a></small></h4><span class="label label-meta label-meta-directlyUsed" title="Marks types that are directly referenced by non-extern code.">@:directlyUsed</span><span class="label label-meta label-meta-event" title="Automatically added by `--net-lib` on events. Has no effect on types compiled by Haxe.">@:event(openfl.events.Event.CHANGE)</span></div><div class="body"><div class="doc doc-main"><p>Provides optional percentage sizing for children of containers that use
+<code><a href="../../feathers/layout/VerticalLayout.html#VerticalLayout">VerticalLayout</a></code>.</p><p class="javadoc">Events:</p><table class="table table-bordered params"><tr class="indent"><th style="width:25%;"><code>openfl.events.Event.CHANGE</code></th><td><p>Dispatched when a property of the layout
+data changes, which triggers the container to invalidate.</p></td></tr></table><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/layout/VerticalLayout.html#VerticalLayout">feathers.layout.VerticalLayout</a></code></p></div></li><li><div class="inline-content"><p><code><a href="../../feathers/layout/ILayoutObject.html#layoutData">feathers.layout.ILayoutObject.layoutData</a></code></p></div></li></ul></div><h3 class="section">Static methods</h3><div class="fields"><div class="field "><a name="fill"></a><h3 class="anchor"><code><span class="label label-static">static</span><a href="#fill"><span class="identifier">fill</span></a>():<a class="type" title="feathers.layout.VerticalLayoutData - Provides optional percentage sizing for children of containers that use VerticalLayout." href="../../feathers/layout/VerticalLayoutData.html">VerticalLayoutData</a></code></h3><div class="doc"><p>Creates <code><a href="../../feathers/layout/VerticalLayoutData.html#VerticalLayoutData">VerticalLayoutData</a></code> that fills the parent container, with the
+<code>percentWidth</code> and <code>percentHeight</code> both set to <code>100.0</code>.</p>
+<p>In the following example, one of the container's children fills the
+container's bounds:</p>
+<pre><code class="prettyprint haxe">var container = new LayoutGroup();
+container.layout = new VerticalLayout();
+
+var child = new Label();
+child.layoutData = VerticalLayoutData.fill();
+container.addChild(child);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/layout/VerticalLayoutData.html#percentWidth">VerticalLayoutData.percentWidth</a></code></p></div></li><li><div class="inline-content"><p><code><a href="../../feathers/layout/VerticalLayoutData.html#percentHeight">VerticalLayoutData.percentHeight</a></code></p></div></li></ul></div></div><div class="field "><a name="fillHorizontal"></a><h3 class="anchor"><code><span class="label label-meta label-meta-value" title="Used to store default values for fields and function arguments.">@:value({ percentWidth : 100.0 })</span><span class="label label-static">static</span><a href="#fillHorizontal"><span class="identifier">fillHorizontal</span></a>(<span style="white-space:nowrap">percentWidth:<span class="type">Float</span> = 100.0</span>):<a class="type" title="feathers.layout.VerticalLayoutData - Provides optional percentage sizing for children of containers that use VerticalLayout." href="../../feathers/layout/VerticalLayoutData.html">VerticalLayoutData</a></code></h3><div class="doc"><p>Creates <code><a href="../../feathers/layout/VerticalLayoutData.html#VerticalLayoutData">VerticalLayoutData</a></code> that fills the width of the parent
+container, with the ability to optionally specify a percentage value to
+pass to <code>percentWidth</code>.</p>
+<p>In the following example, one of the container's children fills the
+container's width:</p>
+<pre><code class="prettyprint haxe">var container = new LayoutGroup();
+container.layout = new VerticalLayout();
+
+var child = new Label();
+child.layoutData = VerticalLayoutData.fillHorizontal();
+container.addChild(child);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/layout/VerticalLayoutData.html#percentWidth">VerticalLayoutData.percentWidth</a></code></p></div></li></ul></div></div><div class="field "><a name="fillVertical"></a><h3 class="anchor"><code><span class="label label-meta label-meta-value" title="Used to store default values for fields and function arguments.">@:value({ percentHeight : 100.0 })</span><span class="label label-static">static</span><a href="#fillVertical"><span class="identifier">fillVertical</span></a>(<span style="white-space:nowrap">percentHeight:<span class="type">Float</span> = 100.0</span>):<a class="type" title="feathers.layout.VerticalLayoutData - Provides optional percentage sizing for children of containers that use VerticalLayout." href="../../feathers/layout/VerticalLayoutData.html">VerticalLayoutData</a></code></h3><div class="doc"><p>Creates <code><a href="../../feathers/layout/VerticalLayoutData.html#VerticalLayoutData">VerticalLayoutData</a></code> that fills the height of the parent
+container, with the ability to optionally specify a percentage value to
+pass to <code>percentHeight</code>.</p>
+<p>In the following example, one of the container's children fills the
+container's height:</p>
+<pre><code class="prettyprint haxe">var container = new LayoutGroup();
+container.layout = new VerticalLayout();
+
+var child = new Label();
+child.layoutData = VerticalLayoutData.fillHorizontal();
+container.addChild(child);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/layout/VerticalLayoutData.html#percentHeight">VerticalLayoutData.percentHeight</a></code></p></div></li></ul></div></div></div><h3 class="section">Constructor</h3><div class="fields"><div class="field "><a name="new"></a><h3 class="anchor"><code><a href="#new"><span class="identifier">new</span></a>(<span style="white-space:nowrap">?percentWidth:<span class="type">Float</span>,</span> <span style="white-space:nowrap">?percentHeight:<span class="type">Float</span></span>)</code></h3><div class="doc"><p>Creates a new <code><a href="../../feathers/layout/VerticalLayoutData.html#VerticalLayoutData">VerticalLayoutData</a></code> object from the given arguments.</p><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div></div></div><h3 class="section">Variables</h3><div class="fields"><div class="field "><a name="percentHeight"></a><h3 class="anchor"><code><a href="#percentHeight"><span class="identifier">percentHeight</span></a>:<span class="type">Null</span>&lt;<span class="type">Float</span>&gt;</code></h3><div class="doc"><p>The height of the layout object, as a percentage of the parent
+container's height.</p>
+<p>A percentage may be specified in the range from <code>0.0</code> to <code>100.0</code>. If the
+value is set to <code>null</code>, this property is ignored and the standard height
+in pixels will be used.</p>
+<p>The parent container will calculate the sum of all of its children with
+explicit pixel heights, and then the remaining space will be distributed
+to children with percent heights. Additionally, if the total sum
+of <code>percentHeight</code> values exceeds <code>100.0</code>, all <code>percentHeight</code> values
+will be normalized to the range from <code>0.0</code> to <code>100.0</code>.</p>
+<p>In the following example, the height of a container's child is set to
+50% of the container's height:</p>
+<pre><code class="prettyprint haxe">var container = new LayoutGroup();
+container.layout = new VerticalLayout();
+
+var percentages = new VerticalLayoutData();
+percentages.percentHeight = 50.0;
+
+var child = new Label();
+child.layoutData = percentages;
+container.addChild(child);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div></div><div class="field "><a name="percentWidth"></a><h3 class="anchor"><code><a href="#percentWidth"><span class="identifier">percentWidth</span></a>:<span class="type">Null</span>&lt;<span class="type">Float</span>&gt;</code></h3><div class="doc"><p>The width of the layout object, as a percentage of the parent
+container's width.</p>
+<p>A percentage may be specified in the range from <code>0.0</code> to <code>100.0</code>. If the
+value is set to <code>null</code>, this property is ignored.</p>
+<p>Tip: If all children of the same container will have the <code>percentWidth</code>
+value set to <code>100.0</code>, it's better for performance to set
+<code><a href="../../feathers/layout/VerticalLayout.html#horizontalAlign">VerticalLayout.horizontalAlign</a></code> to <code><a href="../../feathers/layout/HorizontalAlign.html#JUSTIFY">HorizontalAlign.JUSTIFY</a></code> instead.</p>
+<p>In the following example, the width of a container's child is set to
+50% of the container's width:</p>
+<pre><code class="prettyprint haxe">var container = new LayoutGroup();
+container.layout = new VerticalLayout();
+
+var percentages = new VerticalLayoutData();
+percentages.percentWidth = 50.0;
+
+var child = new Label();
+child.layoutData = percentages;
+container.addChild(child);</code></pre><div class="javadoc inline-content">Available since <p>1.0.0</p>.</div></div></div></div>  </div></div></div></div><footer class="section site-footer" style="background:#FAFAFA"><div class="container"><div class="copyright"><p style="color:#000000"><a href="https://feathersui.com/">Feathers UI</a> — Copyright &copy; 2022 Bowler Hat LLC</p></div></div></footer><script src="../..//highlighter.js"></script><link href="../../highlighter.css" rel="stylesheet"/></body></html>
