@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# require https
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
+# redirect / to /current/
+RewriteRule ^/?$ /formatters/current/$1 [R]
+
+# redirect /current/ to actual path of current version
+RewriteRule ^/?current(/[A-Za-z0-9\-/.]*)?$ /formatters/unstable$1 [R=307,L]
+</IfModule>
