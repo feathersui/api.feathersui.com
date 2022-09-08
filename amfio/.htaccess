@@ -3,7 +3,7 @@ RewriteEngine On
 
 # require https
 RewriteCond %{HTTPS} !=on
-RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/amfio/$1 [R,L]
 
 # redirect / to /current/
 RewriteRule ^/?$ /amfio/current/ [R]

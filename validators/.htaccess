@@ -3,7 +3,7 @@ RewriteEngine On
 
 # require https
 RewriteCond %{HTTPS} !=on
-RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/validators/$1 [R,L]
 
 # redirect / to /current/
 RewriteRule ^/?$ /validators/current/ [R]
