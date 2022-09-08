@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# require https
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/feathersui-binding/$1 [R,L]
+
+# redirect / to /current/
+RewriteRule ^/?$ /feathersui-binding/current/ [R]
+
+# redirect /current/ to actual path of current version
+RewriteRule ^/?current(/[A-Za-z0-9\-/.]*)?$ /feathersui-binding/unstable$1 [R=307,L]
+</IfModule>
