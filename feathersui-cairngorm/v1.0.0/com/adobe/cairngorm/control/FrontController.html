@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><!-- use theme color or fallback -->
+<!--use textcolor from settings, otherwise create a contrasting color to theme color-->
+<head><meta charset="utf-8"/><link href="../../../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/><link href="../../../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/><link href="../../../../bootstrap/css/bootstrap-select.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400" rel="stylesheet" type="text/css"/><link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"/><script src="../../../../jquery-1.9.1.min.js"></script><script src="../../../../bootstrap/js/bootstrap.min.js"></script><script src="../../../../bootstrap/js/bootstrap-select.min.js"></script><link href="../../../../styles.css" rel="stylesheet"/><link href="../../../../extra-styles.css" rel="stylesheet"/><link href="../../../../haxe-nav.css" rel="stylesheet"/><link href="../../../../dark-mode.css" rel="stylesheet"/><script>var dox = {rootPath: "../../../../",platforms: ["types"]};</script><script src="../../../../nav.js"></script><script src="../../../../index.js"></script><link rel="icon" href="../../../../favicon.ico" type="image/x-icon"/><title>com.adobe.cairngorm.control.FrontController - Cairngorm API Reference (Feathers UI)</title><meta name="description" content="A base class for an application specific front controller,
+that is able to dispatch control following particular user gestures to appropriate
+command classes."/></head><body><script>/* Here to prevent flash of unstyled content */let systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;if ((!localStorage.theme && systemDarkMode) || localStorage.theme == "dark") {document.body.style.backgroundColor = "#111";document.body.style.opacity = "0";document.addEventListener("DOMContentLoaded", function(event) {toggleTheme();document.body.style.backgroundColor = "";document.body.style.opacity = "";});}</script><style>
+.navbar .brand {
+	display: inline-block;
+	float: none;
+	text-shadow: 0 0 0 transparent;
+</style><nav class="nav"><div class="navbar navbar-static-top"><div class="navbar-inner" style="background:#FAFAFA; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" style="color:#292522" href="../../../../">Cairngorm API Reference (Feathers UI)</a><a href="#" id="theme-toggle" style="color:#292522" onclick="toggleTheme()" title="Toggle Dark Mode"><i class="fa fa-moon-o"></i></a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="fa fa-search"></i></span><input id="search" type="text" placeholder="Filter (Ctrl+P)" autocomplete="off"/></div></form></div><div class="well sidebar-nav" id="explorer"><div id="nav"></div></div></div><div class="span9"><div class="page-header"><span class="viewsource"><a href="https://github.com/BowlerHatLLC/feathersui-cairngorm/tree/master/src/com/adobe/cairngorm/control/FrontController.hx" class="btn btn-medium"><i class="fa fa-eye"></i> View source</a></span><h1><small>class</small> FrontController</h1><h4><small>package <a href="../../../../com/adobe/cairngorm/control/index.html">com.adobe.cairngorm.control</a></small></h4>    </div><div class="body"><div class="doc doc-main"><p>A base class for an application specific front controller,
+that is able to dispatch control following particular user gestures to appropriate
+command classes.</p>
+<p>The Front Controller is the centralised request handling class in a
+Cairngorm application.  Throughout the application architecture are
+scattered a number of CairngormEventDispatcher.getInstance().dispatchEvent(event)
+method calls, that signal to the listening controller that a user gesture
+has occured.</p>
+<p>The role of the Front Controller is to first register all the different
+events that it is capable of handling against worker classes, called
+command classes.  On hearing an application event, the Front Controller
+will look up its table of registered events, find the appropriate
+command for handling of the event, before dispatching control to the
+command by calling its execute() method.</p>
+<p>Commands are added to the front controller with a weak reference,
+meaning that when the command is garbage collected, the reference in
+the controller is also garbage collected.</p>
+<p>The Front Controller is a base-class that  listen for events 
+dispatched by CairngormEventDispatcher.  In a 
+Cairngorm application, the developer should create a class that
+extends the FrontController, and in the constructor of their
+application specific controller, they should make numerous calls to
+addCommand() to register all the expected events with application
+specific command classes.</p>
+<p>Consider a LoginController, that is the main controller for a Login
+application that has 2 user gestures - Login and Logout.  The application
+will have 2 buttons, "Login" and "Logout" and in the click handler for
+each button, one of the following methods is executed:</p>
+<pre><code class="prettyprint hx">public function doLogin():Void {
+	var event = new LoginEvent(username.text, password.text);
+	CairngormEventDispatcher.getInstance.dispatchEvent(event);
+}
+
+public function doLogout():Void {
+	var event = new LogoutEvent();
+	CairngormEventDispatcher.getInstance.dispatchEvent(event);
+}</code></pre>
+<p>We would create LoginController as follows:</p>
+<pre><code class="prettyprint hx">class LoginController extends com.adobe.cairngorm.control.FrontController {
+	public function new() {
+		initializeCommands();
+	}
+	
+	public function initializeCommands():Void {
+		addCommand(LoginEvent.EVENT_LOGIN, LoginCommand);
+		addCommand(LogoutEvent.EVENT_LOGOUT, LogoutCommand);
+	}
+}</code></pre>
+<p>In our concrete implementation of a FrontController, LoginController, we
+register the 2 events that are expected for broadcast - login and logout -
+using the addCommand() method of the parent FrontController class, to
+assign a command class to each event.</p>
+<p>Adding a new use-case to a Cairngorm application is as simple as
+registering the event against a command in the application Front Controller,
+and then creating the concrete command class.</p>
+<p>The concrete implementation of the FrontController, LoginController,
+should be created once and once only (as we only want a single controller
+in our application architecture).  Typically, in our main application, we
+would declare our FrontController child class as a tag, which should be placed
+above any tags which have a dependency on the FrontController.</p>
+<pre><code class="prettyprint xml">&amp;lt;mx:Application  xmlns:control="com.domain.project.control.LoginController"   ... &amp;gt;
+	&amp;lt;control:LoginController id="controller" /&amp;gt;
+
+	...
+</code></pre><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../../../com/adobe/cairngorm/commands/ICommand.html#ICommand">com.adobe.cairngorm.commands.ICommand</a></code></p></div></li></ul></div><h3 class="section">Constructor</h3><div class="fields"><div class="field "><a name="new"></a><h3 class="anchor"><code><a href="#new"><span class="identifier">new</span></a>()</code></h3><div class="doc"><p></p></div></div></div><h3 class="section">Methods</h3><div class="fields"><div class="field "><a name="addCommand"></a><h3 class="anchor"><code><span class="label label-meta label-meta-value" title="Used to store default values for fields and function arguments.">@:value({ useWeakReference : true })</span><a href="#addCommand"><span class="identifier">addCommand</span></a>(<span style="white-space:nowrap">commandName:<span class="type">String</span>,</span> <span style="white-space:nowrap">commandRef:<span class="type">Class</span>&lt;<a class="type" title="com.adobe.cairngorm.commands.ICommand - The ICommand interface enforces the contract between the Front Controller and concrete command classes in your application." href="../../../../com/adobe/cairngorm/commands/ICommand.html">ICommand</a>&gt;,</span> <span style="white-space:nowrap">useWeakReference:<span class="type">Bool</span> = true</span>):<span class="type">Void</span></code></h3><div class="doc"><p>Registers a ICommand class with the Front Controller, against an event name
+and listens for events with that name.</p>
+<p>When an event is broadcast that matches commandName,
+the ICommand class referred to by commandRef receives control of the
+application, by having its execute() method invoked.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th style="width:25%;"><code>commandName</code></th><td><p>The name of the event that will be broadcast by the
+when a particular user gesture occurs, eg "login"</p></td></tr><tr><th style="width:25%;"><code>commandRef</code></th><td><p>An ICommand Class reference upon which execute()
+can be called when the Front Controller hears an event broadcast with
+commandName. Typically, this argument is passed as "LoginCommand" 
+or similar.</p></td></tr><tr><th style="width:25%;"><code>useWeakReference</code></th><td><p>A Boolean indicating whether the controller
+should added as a weak reference to the CairngormEventDispatcher,
+meaning it will eligibile for garbage collection if it is unloaded from 
+the main application. Defaults to true.</p></td></tr></table></div></div><div class="field "><a name="removeCommand"></a><h3 class="anchor"><code><a href="#removeCommand"><span class="identifier">removeCommand</span></a>(<span style="white-space:nowrap">commandName:<span class="type">String</span></span>):<span class="type">Void</span></code></h3><div class="doc"><p>Deregisters an ICommand class with the given event name from the Front Controller </p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th style="width:25%;"><code>commandName</code></th><td><p>The name of the event that will be broadcast by the
+when a particular user gesture occurs, eg "login"</p></td></tr></table></div></div></div></div></div></div></div><footer class="section site-footer" style="background:#FAFAFA"><div class="container"><div class="copyright"><p style="color:#292522"><a href="https://feathersui.com/">Feathers UI</a> — Copyright &copy; 2022 Bowler Hat LLC</p></div></div></footer><script src="../../../..//highlighter.js"></script><link href="../../../../highlighter.css" rel="stylesheet"/></body></html>

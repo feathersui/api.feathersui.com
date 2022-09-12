@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><!-- use theme color or fallback -->
+<!--use textcolor from settings, otherwise create a contrasting color to theme color-->
+<head><meta charset="utf-8"/><link href="../../../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/><link href="../../../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/><link href="../../../../bootstrap/css/bootstrap-select.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400" rel="stylesheet" type="text/css"/><link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"/><script src="../../../../jquery-1.9.1.min.js"></script><script src="../../../../bootstrap/js/bootstrap.min.js"></script><script src="../../../../bootstrap/js/bootstrap-select.min.js"></script><link href="../../../../styles.css" rel="stylesheet"/><link href="../../../../extra-styles.css" rel="stylesheet"/><link href="../../../../haxe-nav.css" rel="stylesheet"/><link href="../../../../dark-mode.css" rel="stylesheet"/><script>var dox = {rootPath: "../../../../",platforms: ["types"]};</script><script src="../../../../nav.js"></script><script src="../../../../index.js"></script><link rel="icon" href="../../../../favicon.ico" type="image/x-icon"/><title>com.adobe.cairngorm.commands.ICommand - Cairngorm API Reference (Feathers UI)</title><meta name="description" content="The ICommand interface enforces the contract between the Front
+Controller and concrete command classes in your application."/></head><body><script>/* Here to prevent flash of unstyled content */let systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;if ((!localStorage.theme && systemDarkMode) || localStorage.theme == "dark") {document.body.style.backgroundColor = "#111";document.body.style.opacity = "0";document.addEventListener("DOMContentLoaded", function(event) {toggleTheme();document.body.style.backgroundColor = "";document.body.style.opacity = "";});}</script><style>
+.navbar .brand {
+	display: inline-block;
+	float: none;
+	text-shadow: 0 0 0 transparent;
+</style><nav class="nav"><div class="navbar navbar-static-top"><div class="navbar-inner" style="background:#FAFAFA; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" style="color:#292522" href="../../../../">Cairngorm API Reference (Feathers UI)</a><a href="#" id="theme-toggle" style="color:#292522" onclick="toggleTheme()" title="Toggle Dark Mode"><i class="fa fa-moon-o"></i></a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="fa fa-search"></i></span><input id="search" type="text" placeholder="Filter (Ctrl+P)" autocomplete="off"/></div></form></div><div class="well sidebar-nav" id="explorer"><div id="nav"></div></div></div><div class="span9"><div class="page-header"><span class="viewsource"><a href="https://github.com/BowlerHatLLC/feathersui-cairngorm/tree/master/src/com/adobe/cairngorm/commands/ICommand.hx" class="btn btn-medium"><i class="fa fa-eye"></i> View source</a></span><h1><small>interface</small> ICommand</h1><h4><small>package <a href="../../../../com/adobe/cairngorm/commands/index.html">com.adobe.cairngorm.commands</a></small></h4>    <h4><small> <span class="muted">extended by </span><a class="type" title="com.adobe.cairngorm.commands.Command - Deprecated, replaced by com." href="../../../../com/adobe/cairngorm/commands/Command.html">Command</a>, <a class="type" title="com.adobe.cairngorm.commands.SequenceCommand - The SequenceCommand is provided as an abstract base-class that can be extended when you wish to chain commands together for a single user-gesture, or establish some simple form of decision-based workflow." href="../../../../com/adobe/cairngorm/commands/SequenceCommand.html">SequenceCommand</a></small></h4></div><div class="body"><div class="doc doc-main"><p>The ICommand interface enforces the contract between the Front
+Controller and concrete command classes in your application.</p>
+<p>In a Cairngorm application, the application specific Front Controller
+will listen for events of interest, dispatching control to appropriate
+command classes according to the type of the event broadcast.</p>
+<p>When an event is broadcasted by the Front Controller, it will
+lookup its list of registered commands, to find the command capable
+of carrying out the appropriate work in response to the user gesture
+that has caused the event.</p>
+<p>When the event that an command is registered against is broadcast,
+the Front Controller class will invoke the command by calling its
+execute() method, which can be considered the entry point to a
+command.</p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../../../com/adobe/cairngorm/control/FrontController.html#FrontController">com.adobe.cairngorm.control.FrontController</a></code></p></div></li><li><div class="inline-content"><p><code><a href="../../../../com/adobe/cairngorm/control/CairngormEventDispatcher.html#CairngormEventDispatcher">com.adobe.cairngorm.control.CairngormEventDispatcher</a></code></p></div></li></ul></div><h3 class="section">Methods</h3><div class="fields"><div class="field "><a name="execute"></a><h3 class="anchor"><code><a href="#execute"><span class="identifier">execute</span></a>(<span style="white-space:nowrap">event:<a class="type" title="com.adobe.cairngorm.control.CairngormEvent - The CairngormEvent class is used to differentiate Cairngorm events  from events raised by the underlying Flex framework (or similar)." href="../../../../com/adobe/cairngorm/control/CairngormEvent.html">CairngormEvent</a></span>):<span class="type">Void</span></code></h3><div class="doc"><p>Called by the Front Controller to execute the command.</p>
+<p>The single entry point into an ICommand, the 
+execute() method is called by the Front Controller when a 
+user-gesture indicates that the user wishes to perform a 
+task for which a particularconcrete command class has been 
+provided.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th style="width:25%;"><code>event</code></th><td><p>When the Front Controller receives notification
+of a user gesture, the Event that it receives contains both the
+type of the event (indicating which command should handle the
+work) but also any data associated with the event.
+For instance, if a "login" event has been broadcasted,
+to which the controller has registered the LoginCommand,
+the event may also contain some associated data, such as
+the number of prior attempts at login have been made
+already. In this case, the event.type would be set to
+"login" while other properties define in the custom login 
+event object would contain (by way of example)
+an attribute such as attemptedLogins. 
+By careful use of custom event objects, the same
+concrete command class is capable of responding in slightly
+different ways to similar user gesture requests.</p></td></tr></table></div></div></div></div></div></div></div><footer class="section site-footer" style="background:#FAFAFA"><div class="container"><div class="copyright"><p style="color:#292522"><a href="https://feathersui.com/">Feathers UI</a> — Copyright &copy; 2022 Bowler Hat LLC</p></div></div></footer><script src="../../../..//highlighter.js"></script><link href="../../../../highlighter.css" rel="stylesheet"/></body></html>
