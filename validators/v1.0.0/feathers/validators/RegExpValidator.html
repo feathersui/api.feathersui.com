@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><!-- use theme color or fallback -->
+<!--use textcolor from settings, otherwise create a contrasting color to theme color-->
+<head><meta charset="utf-8"/><link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-select.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400" rel="stylesheet" type="text/css"/><link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"/><script src="../../jquery-1.9.1.min.js"></script><script src="../../bootstrap/js/bootstrap.min.js"></script><script src="../../bootstrap/js/bootstrap-select.min.js"></script><link href="../../styles.css" rel="stylesheet"/><link href="../../extra-styles.css" rel="stylesheet"/><link href="../../haxe-nav.css" rel="stylesheet"/><link href="../../dark-mode.css" rel="stylesheet"/><script>var dox = {rootPath: "../../",platforms: ["types"]};</script><script src="../../nav.js"></script><script src="../../index.js"></script><link rel="icon" href="../../favicon.ico" type="image/x-icon"/><title>feathers.validators.RegExpValidator - Feathers UI Validators API Reference (Haxe/OpenFL)</title><meta name="description" content="The RegExpValidator class lets you use a regular expression
+to validate a field. 
+You pass a regular expression to the validator using the
+&lt;code&gt;expression&lt;/code&gt; property, and additional flags
+to control the regular expression pattern matching 
+using the &lt;code&gt;flags&lt;/code&gt; property. "/></head><body><script>/* Here to prevent flash of unstyled content */let systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;if ((!localStorage.theme && systemDarkMode) || localStorage.theme == "dark") {document.body.style.backgroundColor = "#111";document.body.style.opacity = "0";document.addEventListener("DOMContentLoaded", function(event) {toggleTheme();document.body.style.backgroundColor = "";document.body.style.opacity = "";});}</script><style>
+.navbar .brand {
+	display: inline-block;
+	float: none;
+	text-shadow: 0 0 0 transparent;
+</style><nav class="nav"><div class="navbar navbar-static-top"><div class="navbar-inner" style="background:#FAFAFA; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" style="color:#292522" href="../../">Feathers UI Validators API Reference (Haxe/OpenFL)</a><a href="#" id="theme-toggle" style="color:#292522" onclick="toggleTheme()" title="Toggle Dark Mode"><i class="fa fa-moon-o"></i></a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="fa fa-search"></i></span><input id="search" type="text" placeholder="Filter (Ctrl+P)" autocomplete="off"/></div></form></div><div class="well sidebar-nav" id="explorer"><div id="nav"></div></div></div><div class="span9"><div class="page-header"><span class="viewsource"><a href="https://github.com/feathersui/feathersui-validators/tree/v1.0.0/src/feathers/validators/RegExpValidator.hx" class="btn btn-medium"><i class="fa fa-eye"></i> View source</a></span><h1><small>class</small> RegExpValidator</h1><h4><small>package <a href="../../index.html">feathers.validators</a></small></h4><h4><small>extends <a class="type" title="feathers.validators.Validator - The Validator class is the base class for all Flex validators." href="../../feathers/validators/Validator.html">Validator</a></small></h4>    </div><div class="body"><div class="doc doc-main"><p>The RegExpValidator class lets you use a regular expression
+to validate a field. 
+You pass a regular expression to the validator using the
+<code>expression</code> property, and additional flags
+to control the regular expression pattern matching 
+using the <code>flags</code> property. </p>
+<p>The validation is successful if the validator can find a match
+of the regular expression in the field to validate.
+A validation error occurs when the validator finds no match.</p>
+<p>The RegExpValidator class dispatches the <code>valid</code>
+and <code>invalid</code> events.
+For an <code>invalid</code> event, the event object is an instance
+of the ValidationResultEvent class, and it contains an Array
+of ValidationResult objects.</p>
+<p>However, for a <code>valid</code> event, the ValidationResultEvent
+object contains an Array of RegExpValidationResult objects.
+The RegExpValidationResult class is a child class of the
+ValidationResult class, and contains additional properties 
+used with regular expressions, including the following:</p><ul><li><code>matchedIndex</code> An integer that contains the starting index in the input
+String of the match.</li><li><code>matchedString</code> A String that contains the substring of the input String
+that matches the regular expression.</li><li><code>matchedSubStrings</code> An Array of Strings that contains 
+parenthesized substring matches, if any. If no substring matches are found, 
+this Array is of length 0.  Use matchedSubStrings[0] to access the 
+first substring match.</li></ul><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/validators/RegExpValidationResult.html#RegExpValidationResult">feathers.validators.RegExpValidationResult</a></code></p></div></li><li><div class="inline-content"><p><code><a href="../../feathers/validators/ValidationResult.html#ValidationResult">feathers.validators.ValidationResult</a></code></p></div></li><li><div class="inline-content"><p><code>EReg</code></p></div></li></ul></div><h3 class="section">Constructor</h3><div class="fields"><div class="field "><a name="new"></a><h3 class="anchor"><code><a href="#new"><span class="identifier">new</span></a>()</code></h3><div class="doc"><p>Constructor.</p></div></div></div><h3 class="section">Variables</h3><div class="fields"><div class="field "><a name="expression"></a><h3 class="anchor"><code><a href="#expression"><span class="identifier">expression</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>The regular expression to use for validation.</p></div></div><div class="field "><a name="flags"></a><h3 class="anchor"><code><a href="#flags"><span class="identifier">flags</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>The regular expression flags to use when matching.</p></div></div><div class="field "><a name="noExpressionError"></a><h3 class="anchor"><code><a href="#noExpressionError"><span class="identifier">noExpressionError</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Error message when there is no regular expression specifed. 
+The default value is "The expression is missing."</p></div></div><div class="field "><a name="noMatchError"></a><h3 class="anchor"><code><a href="#noMatchError"><span class="identifier">noMatchError</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Error message when there are no matches to the regular expression. 
+The default value is "The field is invalid."</p></div></div></div>  <div class="inherited-fields well"><h3 class="section">Inherited Variables</h3><div class="fields"><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="feathers.validators.Validator - The Validator class is the base class for all Flex validators." href="../../feathers/validators/Validator.html">Validator</a></h4><div style="display:none"><div class="field "><a name="enabled"></a><h3 class="anchor"><code><a href="#enabled"><span class="identifier">enabled</span></a>:<span class="type">Bool</span></code></h3><div class="doc"><p>Setting this value to <code>false</code> will stop the validator
+from performing validation. 
+When a validator is disabled, it dispatch no events, 
+and the <code>validate()</code> method returns null.
+*</p></div></div><div class="field "><a name="listener"></a><h3 class="anchor"><code><a href="#listener"><span class="identifier">listener</span></a>:<span class="type">Dynamic</span></code></h3><div class="doc"><p>Specifies the validation listener.</p>
+<p>If you do not specify a listener,
+Flex uses the value of the <code>source</code> property. 
+After Flex determines the source component,
+it changes the border color of the component,
+displays an error message for a failure,
+or hides any existing error message for a successful validation.</p></div></div><div class="field "><a name="property"></a><h3 class="anchor"><code><a href="#property"><span class="identifier">property</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>A String specifying the name of the property of the <code>source</code> object that
+contains the value to validate. Setting <code>property</code> is optional, but if
+you specify <code>source</code>, you should set a value for either <code>property</code> or
+<code>valueFunction</code> as well.</p>
+<p>Reading the <code>property</code> uses reflection, which may not work if Dead Code
+Elimination (DCE) is enabled. The <code>property</code> property is included for
+backwards compatibility with the Flex API, but the new <code>valueFunction</code>
+is now recommended instead.</p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>valueFunction</code></p></div></li></ul></div></div><div class="field "><a name="required"></a><h3 class="anchor"><code><a href="#required"><span class="identifier">required</span></a>:<span class="type">Bool</span></code></h3><div class="doc"><p>If <code>true</code>, specifies that a missing or empty
+value causes a validation error.</p></div></div><div class="field "><a name="requiredFieldError"></a><h3 class="anchor"><code><a href="#requiredFieldError"><span class="identifier">requiredFieldError</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Error message when a value is missing and the 
+<code>required</code> property is <code>true</code>. </p></div></div><div class="field "><a name="source"></a><h3 class="anchor"><code><a href="#source"><span class="identifier">source</span></a>:<span class="type">Dynamic</span></code></h3><div class="doc"><p>Specifies the object containing the property to validate. 
+Set this to an instance of a component or a data model. 
+You use data binding syntax in MXML to specify the value.
+This property supports dot-delimited Strings
+for specifying nested properties. </p>
+<p>If you specify a value to the <code>source</code> property,
+then you should specify a value to either the <code>property</code>
+property or the <code>valueFunction</code> property as well. 
+The <code>source</code> property is optional.</p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>property</code></p></div></li><li><div class="inline-content"><p><code>valueFunction</code></p></div></li></ul></div></div><div class="field "><a name="trigger"></a><h3 class="anchor"><code><a href="#trigger"><span class="identifier">trigger</span></a>:<span class="type">IEventDispatcher</span></code></h3><div class="doc"><p>Specifies the component generating the event that triggers the validator. 
+If omitted, by default Flex uses the value of the <code>source</code> property.
+When the <code>trigger</code> dispatches a <code>triggerEvent</code>,
+validation executes.</p></div></div><div class="field "><a name="triggerEvent"></a><h3 class="anchor"><code><a href="#triggerEvent"><span class="identifier">triggerEvent</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Specifies the event that triggers the validation. 
+If omitted, Flex uses the <code>valueCommit</code> event. 
+Flex dispatches the <code>valueCommit</code> event
+when a user completes data entry into a control.
+Usually this is when the user removes focus from the component, 
+or when a property value is changed programmatically.
+If you want a validator to ignore all events,
+set <code>triggerEvent</code> to the empty string ("").</p></div></div><div class="field "><a name="valueFunction"></a><h3 class="anchor"><code><a href="#valueFunction"><span class="identifier">valueFunction</span></a>:()&nbsp;&#8209;&gt;&nbsp;<span class="type">Dynamic</span></code></h3><div class="doc"><p>A function that returns the value to validate. It's recommended to use
+<code>valueFunction</code> instead of <code>property</code> because reflection is used with
+<code>property</code>, which could result in issues if Dead Code Elimination (DCE)
+is enabled.</p></div></div></div></div><h3 class="section">Inherited Methods</h3><div class="fields"><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="feathers.validators.Validator - The Validator class is the base class for all Flex validators." href="../../feathers/validators/Validator.html">Validator</a></h4><div style="display:none"><div class="field "><a name="validate"></a><h3 class="anchor"><code><span class="label label-meta label-meta-value" title="Used to store default values for fields and function arguments.">@:value({ suppressEvents : false, value : null })</span><a href="#validate"><span class="identifier">validate</span></a>(<span style="white-space:nowrap">?value:<span class="type">Dynamic</span>,</span> <span style="white-space:nowrap">suppressEvents:<span class="type">Bool</span> = false</span>):<span class="type">ValidationResultEvent</span></code></h3><div class="doc"><p>Performs validation and optionally notifies
+the listeners of the result. </p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th style="width:25%;"><code>value</code></th><td><p>Optional value to validate.
+If null, then the validator uses the <code>source</code> and
+<code>property</code> properties to determine the value.
+If you specify this argument, you should also set the
+<code>listener</code> property to specify the target component
+for any validation error messages.</p></td></tr><tr><th style="width:25%;"><code>suppressEvents</code></th><td><p>If <code>false</code>, then after validation,
+the validator will notify the listener of the result.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>A ValidationResultEvent object
+containing the results of the validation. 
+For a successful validation, the
+<code>ValidationResultEvent.results</code> Array property is empty. 
+For a validation failure, the
+<code>ValidationResultEvent.results</code> Array property contains
+one ValidationResult object for each field checked by the validator, 
+both for fields that failed the validation and for fields that passed. 
+Examine the <code><a href="../../feathers/validators/ValidationResult.html#isError">ValidationResult.isError</a></code>
+property to determine if the field passed or failed the validation. </p></div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>feathers.events.ValidationResultEvent</code></p></div></li><li><div class="inline-content"><p><code><a href="../../feathers/validators/ValidationResult.html#ValidationResult">feathers.validators.ValidationResult</a></code></p></div></li></ul></div></div></div></div></div></div></div></div></div><footer class="section site-footer" style="background:#FAFAFA"><div class="container"><div class="copyright"><p style="color:#292522"><a href="https://feathersui.com/">Feathers UI</a> — Copyright &copy; 2022 Bowler Hat LLC</p></div></div></footer><script src="../..//highlighter.js"></script><link href="../../highlighter.css" rel="stylesheet"/></body></html>
