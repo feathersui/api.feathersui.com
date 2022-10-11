@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><!-- use theme color or fallback -->
+<!--use textcolor from settings, otherwise create a contrasting color to theme color-->
+<head><meta charset="utf-8"/><link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-select.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400" rel="stylesheet" type="text/css"/><link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"/><script src="../../jquery-1.9.1.min.js"></script><script src="../../bootstrap/js/bootstrap.min.js"></script><script src="../../bootstrap/js/bootstrap-select.min.js"></script><link href="../../styles.css" rel="stylesheet"/><link href="../../extra-styles.css" rel="stylesheet"/><link href="../../haxe-nav.css" rel="stylesheet"/><link href="../../dark-mode.css" rel="stylesheet"/><script>var dox = {rootPath: "../../",platforms: ["types"]};</script><script src="../../nav.js"></script><script src="../../index.js"></script><link rel="icon" href="../../favicon.ico" type="image/x-icon"/><title>feathers.validators.IValidatorListener - Feathers UI Validators API Reference (Haxe/OpenFL)</title><meta name="description" content="The interface that components implement to support
+the Flex data validation mechanism. 
+The UIComponent class implements this interface.
+Therefore, any subclass of UIComponent also implements it."/></head><body><script>/* Here to prevent flash of unstyled content */let systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;if ((!localStorage.theme && systemDarkMode) || localStorage.theme == "dark") {document.body.style.backgroundColor = "#111";document.body.style.opacity = "0";document.addEventListener("DOMContentLoaded", function(event) {toggleTheme();document.body.style.backgroundColor = "";document.body.style.opacity = "";});}</script><style>
+.navbar .brand {
+	display: inline-block;
+	float: none;
+	text-shadow: 0 0 0 transparent;
+</style><nav class="nav"><div class="navbar navbar-static-top"><div class="navbar-inner" style="background:#FAFAFA; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" style="color:#292522" href="../../">Feathers UI Validators API Reference (Haxe/OpenFL)</a><a href="#" id="theme-toggle" style="color:#292522" onclick="toggleTheme()" title="Toggle Dark Mode"><i class="fa fa-moon-o"></i></a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="fa fa-search"></i></span><input id="search" type="text" placeholder="Filter (Ctrl+P)" autocomplete="off"/></div></form></div><div class="well sidebar-nav" id="explorer"><div id="nav"></div></div></div><div class="span9"><div class="page-header"><span class="viewsource"><a href="https://github.com/feathersui/feathersui-validators/tree/v1.0.1/src/feathers/validators/IValidatorListener.hx" class="btn btn-medium"><i class="fa fa-eye"></i> View source</a></span><h1><small>interface</small> IValidatorListener</h1><h4><small>package <a href="../../index.html">feathers.validators</a></small></h4>    <span class="label label-meta label-meta-directlyUsed" title="Marks types that are directly referenced by non-extern code.">@:directlyUsed</span></div><div class="body"><div class="doc doc-main"><p>The interface that components implement to support
+the Flex data validation mechanism. 
+The UIComponent class implements this interface.
+Therefore, any subclass of UIComponent also implements it.</p></div><h3 class="section">Variables</h3><div class="fields"><div class="field "><a name="errorString"></a><h3 class="anchor"><code><a href="#errorString"><span class="identifier">errorString</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>The text that will be displayed by a component's error tip when a
+component is monitored by a Validator and validation fails.</p>
+<p>You can use the <code>errorString</code> property to show a 
+validation error for a component, without actually using
+a validator class. 
+When you write a String value to the <code>errorString</code> property, 
+Flex draws a red border around the component to indicate
+the validation error, and the String appears in a tooltip
+as the validation error message when you move  the mouse over
+the component, just as if a validator detected a validation error.</p>
+<p>To clear the validation error, write an empty String, "", 
+to the <code>errorString</code> property.</p>
+<p>Note that writing a value to the <code>errorString</code> property 
+does not trigger the valid or invalid events; it only changes the 
+border color and displays the validation error message.</p></div></div><div class="field "><a name="validationSubField"></a><h3 class="anchor"><code><a href="#validationSubField"><span class="identifier">validationSubField</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Used by a validator to assign a subfield.</p></div></div></div><h3 class="section">Methods</h3><div class="fields"><div class="field "><a name="validationResultHandler"></a><h3 class="anchor"><code><a href="#validationResultHandler"><span class="identifier">validationResultHandler</span></a>(<span style="white-space:nowrap">event:<span class="type">ValidationResultEvent</span></span>):<span class="type">Void</span></code></h3><div class="doc"><p>Handles both the <code>valid</code> and <code>invalid</code> events
+from a  validator assigned to this component.  </p>
+<p>You typically handle the <code>valid</code> and <code>invalid</code>
+events dispatched by a validator by assigning event listeners
+to the validators. 
+If you want to handle validation events directly in the component
+that is being validated, you can override this method
+to handle the <code>valid</code> and <code>invalid</code> events.
+From within your implementation, you can use the
+<code>dispatchEvent()</code> method to dispatch the 
+<code>valid</code> and <code>invalid</code> events
+in the case where a validator is also listening for them.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th style="width:25%;"><code>event</code></th><td><p>The event object for the validation.</p></td></tr></table><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>feathers.events.ValidationResultEvent</code></p></div></li></ul></div></div></div></div></div></div></div><footer class="section site-footer" style="background:#FAFAFA"><div class="container"><div class="copyright"><p style="color:#292522"><a href="https://feathersui.com/">Feathers UI</a> — Copyright &copy; 2022 Bowler Hat LLC</p></div></div></footer><script src="../..//highlighter.js"></script><link href="../../highlighter.css" rel="stylesheet"/></body></html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><!-- use theme color or fallback -->
+<!--use textcolor from settings, otherwise create a contrasting color to theme color-->
+<head><meta charset="utf-8"/><link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet"/><link href="./bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/><link href="./bootstrap/css/bootstrap-select.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400" rel="stylesheet" type="text/css"/><link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"/><script src="./jquery-1.9.1.min.js"></script><script src="./bootstrap/js/bootstrap.min.js"></script><script src="./bootstrap/js/bootstrap-select.min.js"></script><link href="./styles.css" rel="stylesheet"/><link href="./extra-styles.css" rel="stylesheet"/><link href="./haxe-nav.css" rel="stylesheet"/><link href="./dark-mode.css" rel="stylesheet"/><script>var dox = {rootPath: "./",platforms: ["types"]};</script><script src="./nav.js"></script><script src="./index.js"></script><link rel="icon" href="./favicon.ico" type="image/x-icon"/><title>feathers.validators - Feathers UI Validators API Reference (Haxe/OpenFL)</title></head><body><script>/* Here to prevent flash of unstyled content */let systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;if ((!localStorage.theme && systemDarkMode) || localStorage.theme == "dark") {document.body.style.backgroundColor = "#111";document.body.style.opacity = "0";document.addEventListener("DOMContentLoaded", function(event) {toggleTheme();document.body.style.backgroundColor = "";document.body.style.opacity = "";});}</script><style>
+.navbar .brand {
+	display: inline-block;
+	float: none;
+	text-shadow: 0 0 0 transparent;
+</style><nav class="nav"><div class="navbar navbar-static-top"><div class="navbar-inner" style="background:#FAFAFA; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" style="color:#292522" href="./">Feathers UI Validators API Reference (Haxe/OpenFL)</a><a href="#" id="theme-toggle" style="color:#292522" onclick="toggleTheme()" title="Toggle Dark Mode"><i class="fa fa-moon-o"></i></a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="fa fa-search"></i></span><input id="search" type="text" placeholder="Filter (Ctrl+P)" autocomplete="off"/></div></form></div><div class="well sidebar-nav" id="explorer"><div id="nav"></div></div></div><div class="span9"><h1>feathers.validators </h1>  <table class="table table-condensed"><tbody><tr class="package"><td colspan="2"><i class="fa fa-folder-o"></i><a href="./feathers/validators/utils/index.html" title=".utils">utils</a></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/CreditCardValidator.html" title=".CreditCardValidator">CreditCardValidator</a></td><td><p>The CreditCardValidator class validates that a credit card number
+is the correct length, has the correct prefix, and passes
+the Luhn mod10 algorithm for the specified card type. 
+This validator does not check whether the credit card
+is an actual active credit card account.</p></td></tr><tr class="abstract"><td style="width:200px;"><a href="./feathers/validators/CreditCardValidatorCardType.html" title=".CreditCardValidatorCardType">CreditCardValidatorCardType</a></td><td><p>The CreditCardValidatorCardType class defines value constants
+for specifying the type of credit card to validate.
+These values are used in the <code><a href="../../feathers/validators/CreditCardValidator.html#cardType">CreditCardValidator.cardType</a></code>
+property.</p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/CurrencyValidator.html" title=".CurrencyValidator">CurrencyValidator</a></td><td><p>The CurrencyValidator class ensures that a String
+represents a valid currency expression.
+It can make sure the input falls within a given range
+(specified by <code>minValue</code> and <code>maxValue</code>),
+is non-negative (specified by <code>allowNegative</code>),
+and does not exceed the specified <code>precision</code>. The 
+CurrencyValidator class correctly validates formatted and unformatted
+currency expressions, e.g., "$12,345.00" and "12345".
+You can customize the <code>currencySymbol</code>, <code>alignSymbol</code>,
+<code>thousandsSeparator</code>, and <code>decimalSeparator</code>
+properties for internationalization.</p></td></tr><tr class="abstract"><td style="width:200px;"><a href="./feathers/validators/CurrencyValidatorAlignSymbol.html" title=".CurrencyValidatorAlignSymbol">CurrencyValidatorAlignSymbol</a></td><td><p>The CurrencyValidatorAlignSymbol class defines value constants
+for specifying currency symbol alignment.
+These values are used in the <code><a href="../../feathers/validators/CurrencyValidator.html#alignSymbol">CurrencyValidator.alignSymbol</a></code>
+property.</p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/DateValidator.html" title=".DateValidator">DateValidator</a></td><td><p>The DateValidator class validates that a String, Date, or Object contains a 
+proper date and matches a specified format. Users can enter a single 
+digit or two digits for month, day, and year. 
+By default, the validator ensures the following formats:</p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/EmailValidator.html" title=".EmailValidator">EmailValidator</a></td><td><p>The EmailValidator class validates that a String has a single &#64; sign,
+a period in the domain name and that the top-level domain suffix has
+two, three, four, or six characters.
+IP domain names are valid if they are enclosed in square brackets. 
+The validator does not check whether the domain and user name
+actually exist.</p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/IValidator.html" title=".IValidator">IValidator</a></td><td><p>This interface specifies the methods and properties that a Validator 
+object must implement. </p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/IValidatorListener.html" title=".IValidatorListener">IValidatorListener</a></td><td><p>The interface that components implement to support
+the Flex data validation mechanism. 
+The UIComponent class implements this interface.
+Therefore, any subclass of UIComponent also implements it.</p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/NumberValidator.html" title=".NumberValidator">NumberValidator</a></td><td><p>The NumberValidator class ensures that a String represents a valid number.
+It can ensure that the input falls within a given range
+(specified by <code>minValue</code> and <code>maxValue</code>),
+is an integer (specified by <code>domain</code>),
+is non-negative (specified by <code>allowNegative</code>),
+and does not exceed the specified <code>precision</code>.
+The validator correctly validates formatted numbers (e.g., "12,345.67")
+and you can customize the <code>thousandsSeparator</code> and
+<code>decimalSeparator</code> properties for internationalization.</p></td></tr><tr class="abstract"><td style="width:200px;"><a href="./feathers/validators/NumberValidatorDomainType.html" title=".NumberValidatorDomainType">NumberValidatorDomainType</a></td><td><p>The NumberValidatorDomainType class defines the values 
+for the <code>domain</code> property of the NumberValidator class.</p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/PhoneNumberValidator.html" title=".PhoneNumberValidator">PhoneNumberValidator</a></td><td><p>The PhoneNumberValidator class validates that a string
+is a valid phone number.
+A valid phone number contains at least 10 digits,
+plus additional formatting characters.
+The validator does not check if the phone number
+is an actual active phone number.</p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/RegExpValidationResult.html" title=".RegExpValidationResult">RegExpValidationResult</a></td><td><p>The RegExpValidator class dispatches the <code>valid</code>
+and <code>invalid</code> events. 
+For an <code>invalid</code> event, the event object
+is an instance of the ValidationResultEvent class, 
+and the <code>ValidationResultEvent.results</code> property
+contains an Array of ValidationResult objects.</p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/RegExpValidator.html" title=".RegExpValidator">RegExpValidator</a></td><td><p>The RegExpValidator class lets you use a regular expression
+to validate a field. 
+You pass a regular expression to the validator using the
+<code>expression</code> property, and additional flags
+to control the regular expression pattern matching 
+using the <code>flags</code> property. </p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/SocialSecurityValidator.html" title=".SocialSecurityValidator">SocialSecurityValidator</a></td><td><p>The SocialSecurityValidator class validates that a String
+is a valid United States Social Security number.
+It does not check whether it is an existing Social Security number.</p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/StringValidator.html" title=".StringValidator">StringValidator</a></td><td><p>The <code><a href="../../feathers/validators/StringValidator.html#StringValidator">StringValidator</a></code> class validates that the length of a String is within a
+specified range.</p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/ValidationResult.html" title=".ValidationResult">ValidationResult</a></td><td><p>The ValidationResult class contains the results of a validation. </p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/Validator.html" title=".Validator">Validator</a></td><td><p>The Validator class is the base class for all Flex validators. 
+This class implements the ability for a validator to make a field
+required, which means that the user must enter a value in the field
+or the validation fails.
+*</p></td></tr><tr class="class"><td style="width:200px;"><a href="./feathers/validators/ZipCodeValidator.html" title=".ZipCodeValidator">ZipCodeValidator</a></td><td><p>The ZipCodeValidator class validates that a String
+has the correct length and format for a five-digit ZIP code,
+a five-digit+four-digit United States ZIP code, or Canadian postal code.</p></td></tr><tr class="abstract"><td style="width:200px;"><a href="./feathers/validators/ZipCodeValidatorDomainType.html" title=".ZipCodeValidatorDomainType">ZipCodeValidatorDomainType</a></td><td><p>The ZipCodeValidatorDomainType class defines the values 
+for the <code>domain</code> property of the ZipCodeValidator class,
+which you use to specify the type of ZIP code to validate.</p></td></tr></tbody></table></div></div></div><footer class="section site-footer" style="background:#FAFAFA"><div class="container"><div class="copyright"><p style="color:#292522"><a href="https://feathersui.com/">Feathers UI</a> — Copyright &copy; 2022 Bowler Hat LLC</p></div></div></footer><script src=".//highlighter.js"></script><link href="./highlighter.css" rel="stylesheet"/></body></html>

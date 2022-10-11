@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><!-- use theme color or fallback -->
+<!--use textcolor from settings, otherwise create a contrasting color to theme color-->
+<head><meta charset="utf-8"/><link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-select.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400" rel="stylesheet" type="text/css"/><link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"/><script src="../../jquery-1.9.1.min.js"></script><script src="../../bootstrap/js/bootstrap.min.js"></script><script src="../../bootstrap/js/bootstrap-select.min.js"></script><link href="../../styles.css" rel="stylesheet"/><link href="../../extra-styles.css" rel="stylesheet"/><link href="../../haxe-nav.css" rel="stylesheet"/><link href="../../dark-mode.css" rel="stylesheet"/><script>var dox = {rootPath: "../../",platforms: ["types"]};</script><script src="../../nav.js"></script><script src="../../index.js"></script><link rel="icon" href="../../favicon.ico" type="image/x-icon"/><title>feathers.validators.DateValidator - Feathers UI Validators API Reference (Haxe/OpenFL)</title><meta name="description" content="The DateValidator class validates that a String, Date, or Object contains a 
+proper date and matches a specified format. Users can enter a single 
+digit or two digits for month, day, and year. 
+By default, the validator ensures the following formats:"/></head><body><script>/* Here to prevent flash of unstyled content */let systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;if ((!localStorage.theme && systemDarkMode) || localStorage.theme == "dark") {document.body.style.backgroundColor = "#111";document.body.style.opacity = "0";document.addEventListener("DOMContentLoaded", function(event) {toggleTheme();document.body.style.backgroundColor = "";document.body.style.opacity = "";});}</script><style>
+.navbar .brand {
+	display: inline-block;
+	float: none;
+	text-shadow: 0 0 0 transparent;
+</style><nav class="nav"><div class="navbar navbar-static-top"><div class="navbar-inner" style="background:#FAFAFA; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" style="color:#292522" href="../../">Feathers UI Validators API Reference (Haxe/OpenFL)</a><a href="#" id="theme-toggle" style="color:#292522" onclick="toggleTheme()" title="Toggle Dark Mode"><i class="fa fa-moon-o"></i></a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="fa fa-search"></i></span><input id="search" type="text" placeholder="Filter (Ctrl+P)" autocomplete="off"/></div></form></div><div class="well sidebar-nav" id="explorer"><div id="nav"></div></div></div><div class="span9"><div class="page-header"><span class="viewsource"><a href="https://github.com/feathersui/feathersui-validators/tree/v1.0.1/src/feathers/validators/DateValidator.hx" class="btn btn-medium"><i class="fa fa-eye"></i> View source</a></span><h1><small>class</small> DateValidator</h1><h4><small>package <a href="../../index.html">feathers.validators</a></small></h4><h4><small>extends <a class="type" title="feathers.validators.Validator - The Validator class is the base class for all Flex validators." href="../../feathers/validators/Validator.html">Validator</a></small></h4>    </div><div class="body"><div class="doc doc-main"><p>The DateValidator class validates that a String, Date, or Object contains a 
+proper date and matches a specified format. Users can enter a single 
+digit or two digits for month, day, and year. 
+By default, the validator ensures the following formats:</p><ul><li>The month is between 1 and 12 (or 0-11 for <code>Date</code> objects)</li><li>The day is between 1 and 31</li><li>The year is a number</li></ul>
+<p>You can specify the date in the DateValidator class in two ways:</p><ul><li>A single <code>String</code> containing the date - Use the <code>source</code>
+and <code>property</code> properties to specify the String.
+The String can contain digits and the formatting characters
+specified by the <code>allowedFormatChars</code> property,
+which include the "/-. " characters. 
+By default, the input format of the date in a String field
+is "MM/DD/YYYY" where "MM" is the month, "DD" is the day,
+and "YYYY" is the year. 
+You can use the <code>inputFormat</code> property
+to specify a different format.</li><li>A <code>Date</code> object.</li><li>An anonymous structure or multiple fields containing the day, month, and
+year.  Use all of the following properties to specify the day, month,
+and year inputs: <code>daySource</code>, <code>dayProperty</code>, <code>monthSource</code>,
+<code>monthProperty</code>, <code>yearSource</code>, and <code>yearProperty</code>.</li></ul></div><h3 class="section">Static methods</h3><div class="fields"><div class="field "><a name="validateDate"></a><h3 class="anchor"><code><span class="label label-static">static</span><a href="#validateDate"><span class="identifier">validateDate</span></a>(<span style="white-space:nowrap">validator:<a class="type" title="feathers.validators.DateValidator - The DateValidator class validates that a String, Date, or Object contains a  proper date and matches a specified format." href="../../feathers/validators/DateValidator.html">DateValidator</a>,</span> <span style="white-space:nowrap">value:<span class="type">Dynamic</span>,</span> <span style="white-space:nowrap">baseField:<span class="type">String</span></span>):<span class="type">Array</span>&lt;<a class="type" title="feathers.validators.ValidationResult - The ValidationResult class contains the results of a validation." href="../../feathers/validators/ValidationResult.html">ValidationResult</a>&gt;</code></h3><div class="doc"><p>Convenience method for calling a validator
+from within a custom validation function.
+Each of the standard Flex validators has a similar convenience method.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th style="width:25%;"><code>validator</code></th><td><p>The DateValidator instance.</p></td></tr><tr><th style="width:25%;"><code>value</code></th><td><p>A field to validate.</p></td></tr><tr><th style="width:25%;"><code>baseField</code></th><td><p>Text representation of the subfield
+specified in the value parameter. 
+For example, if the <code>value</code> parameter
+specifies value.date, the <code>baseField</code> value is "date".</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>An Array of ValidationResult objects, with one ValidationResult 
+object for each field examined by the validator. </p></div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/validators/ValidationResult.html#ValidationResult">feathers.validators.ValidationResult</a></code></p></div></li></ul></div></div></div><h3 class="section">Constructor</h3><div class="fields"><div class="field "><a name="new"></a><h3 class="anchor"><code><a href="#new"><span class="identifier">new</span></a>()</code></h3><div class="doc"><p>Constructor.</p></div></div></div><h3 class="section">Variables</h3><div class="fields"><div class="field "><a name="allowedFormatChars"></a><h3 class="anchor"><code><a href="#allowedFormatChars"><span class="identifier">allowedFormatChars</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>The set of formatting characters allowed for separating
+the month, day, and year values.</p></div></div><div class="field "><a name="dayListener"></a><h3 class="anchor"><code><a href="#dayListener"><span class="identifier">dayListener</span></a>:<a class="type" title="feathers.validators.IValidatorListener - The interface that components implement to support the Flex data validation mechanism." href="../../feathers/validators/IValidatorListener.html">IValidatorListener</a></code></h3><div class="doc"><p>The component that listens for the validation result
+for the day subfield.
+If none is specified, use the value specified
+for the <code>daySource</code> property.</p></div></div><div class="field "><a name="dayProperty"></a><h3 class="anchor"><code><a href="#dayProperty"><span class="identifier">dayProperty</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Name of the day property to validate. This property is optional, but
+if you specify the <code>daySource</code> property, you should specify either
+<code>dayProperty</code> or <code>dayValueFunction</code> as well.</p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>dayValueFunction</code></p></div></li></ul></div></div><div class="field "><a name="daySource"></a><h3 class="anchor"><code><a href="#daySource"><span class="identifier">daySource</span></a>:<span class="type">Dynamic</span></code></h3><div class="doc"><p>Object that contains the value of the day field.
+If you specify a value for this property, you must also
+specify a value for either the <code>dayProperty</code> property or the
+<code>dayValueFunction</code> property. 
+Do not use this property if you set the <code>source</code> 
+and <code>property</code> (or <code>valueFunction</code>) properties.</p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>dayProperty</code></p></div></li><li><div class="inline-content"><p><code>dayValueFunction</code></p></div></li></ul></div></div><div class="field "><a name="formatError"></a><h3 class="anchor"><code><a href="#formatError"><span class="identifier">formatError</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Error message when the <code>inputFormat</code> property
+is not in the correct format.</p></div></div><div class="field "><a name="includeFormatInError"></a><h3 class="anchor"><code><a href="#includeFormatInError"><span class="identifier">includeFormatInError</span></a>:<span class="type">Bool</span></code></h3><div class="doc"><p>If <code>true</code> the date format is shown in some
+validation error messages. Setting to <code>false</code>
+changes all DateValidators.</p></div></div><div class="field "><a name="inputFormat"></a><h3 class="anchor"><code><a href="#inputFormat"><span class="identifier">inputFormat</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>The date format to validate the value against.
+"MM" is the month, "DD" is the day, and "YYYY" is the year.
+This String is case-sensitive.</p></div></div><div class="field "><a name="invalidCharError"></a><h3 class="anchor"><code><a href="#invalidCharError"><span class="identifier">invalidCharError</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Error message when there are invalid characters in the date.</p></div></div><div class="field "><a name="monthListener"></a><h3 class="anchor"><code><a href="#monthListener"><span class="identifier">monthListener</span></a>:<a class="type" title="feathers.validators.IValidatorListener - The interface that components implement to support the Flex data validation mechanism." href="../../feathers/validators/IValidatorListener.html">IValidatorListener</a></code></h3><div class="doc"><p>The component that listens for the validation result
+for the month subfield. 
+If none is specified, use the value specified
+for the <code>monthSource</code> property.</p></div></div><div class="field "><a name="monthProperty"></a><h3 class="anchor"><code><a href="#monthProperty"><span class="identifier">monthProperty</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Name of the month property to validate. This property is optional, but
+if you specify the <code>monthSource</code> property, you should specify either
+<code>monthProperty</code> or <code>monthValueFunction</code> as well.</p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>monthValueFunction</code></p></div></li></ul></div></div><div class="field "><a name="monthSource"></a><h3 class="anchor"><code><a href="#monthSource"><span class="identifier">monthSource</span></a>:<span class="type">Dynamic</span></code></h3><div class="doc"><p>Object that contains the value of the month field.
+If you specify a value for this property, you must also specify
+a value for either the <code>monthProperty</code> property or the
+<code>monthValueFunction</code> property.
+Do not use this property if you set the <code>source</code> 
+and <code>property</code> (or <code>valueFunction</code>) properties. </p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>monthProperty</code></p></div></li><li><div class="inline-content"><p><code>monthValueFunction</code></p></div></li></ul></div></div><div class="field "><a name="validateAsString"></a><h3 class="anchor"><code><a href="#validateAsString"><span class="identifier">validateAsString</span></a>:<span class="type">Bool</span></code></h3><div class="doc"><p>Determines how to validate the value.
+If set to <code>true</code>, the validator evaluates the value
+as a String, unless the value has a <code>month</code>,
+<code>day</code>, or <code>year</code> property.
+If <code>false</code>, the validator evaluates the value
+as a Date object. </p></div></div><div class="field "><a name="wrongDayError"></a><h3 class="anchor"><code><a href="#wrongDayError"><span class="identifier">wrongDayError</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Error message when the day is invalid.</p></div></div><div class="field "><a name="wrongLengthError"></a><h3 class="anchor"><code><a href="#wrongLengthError"><span class="identifier">wrongLengthError</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Error message when the length of the date
+doesn't match that of the <code>inputFormat</code> property.</p></div></div><div class="field "><a name="wrongMonthError"></a><h3 class="anchor"><code><a href="#wrongMonthError"><span class="identifier">wrongMonthError</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Error message when the month is invalid.</p></div></div><div class="field "><a name="wrongYearError"></a><h3 class="anchor"><code><a href="#wrongYearError"><span class="identifier">wrongYearError</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Error message when the year is invalid.</p></div></div><div class="field "><a name="yearListener"></a><h3 class="anchor"><code><a href="#yearListener"><span class="identifier">yearListener</span></a>:<a class="type" title="feathers.validators.IValidatorListener - The interface that components implement to support the Flex data validation mechanism." href="../../feathers/validators/IValidatorListener.html">IValidatorListener</a></code></h3><div class="doc"><p>The component that listens for the validation result
+for the year subfield. 
+If none is specified, use the value specified
+for the <code>yearSource</code> property.</p></div></div><div class="field "><a name="yearProperty"></a><h3 class="anchor"><code><a href="#yearProperty"><span class="identifier">yearProperty</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Name of the year property to validate. This property is optional, but if
+you specify the <code>yearSource</code> property, you should specify either
+<code>yearProperty</code> or <code>yearValueFunction</code> as well.</p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>yearValueFunction</code></p></div></li></ul></div></div><div class="field "><a name="yearSource"></a><h3 class="anchor"><code><a href="#yearSource"><span class="identifier">yearSource</span></a>:<span class="type">Dynamic</span></code></h3><div class="doc"><p>Object that contains the value of the year field.
+If you specify a value for this property, you must also specify
+a value for either the <code>yearProperty</code> property or the
+<code>yearValueFunction</code> property. 
+Do not use this property if you set the <code>source</code> 
+and <code>property</code> (or <code>valueFunction</code>) properties. </p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>yearProperty</code></p></div></li><li><div class="inline-content"><p><code>yearValueFunction</code></p></div></li></ul></div></div><div class="field "><a name="dayValueFunction"></a><h3 class="anchor"><code><a href="#dayValueFunction"><span class="identifier">dayValueFunction</span></a>:()&nbsp;&#8209;&gt;&nbsp;<span class="type">Dynamic</span></code></h3><div class="doc"><p>A function that returns the day value to validate. It's recommended to
+use <code>dayValueFunction</code> instead of <code>dayProperty</code> because reflection is
+used with <code>dayProperty</code>, which could result in issues if Dead Code
+Elimination (DCE) is enabled.</p></div></div><div class="field "><a name="monthValueFunction"></a><h3 class="anchor"><code><a href="#monthValueFunction"><span class="identifier">monthValueFunction</span></a>:()&nbsp;&#8209;&gt;&nbsp;<span class="type">Dynamic</span></code></h3><div class="doc"><p>A function that returns the day value to validate. It's recommended to
+use <code>monthValueFunction</code> instead of <code>monthProperty</code> because reflection
+is used with <code>monthProperty</code>, which could result in issues if Dead Code
+Elimination (DCE) is enabled.</p></div></div><div class="field "><a name="yearValueFunction"></a><h3 class="anchor"><code><a href="#yearValueFunction"><span class="identifier">yearValueFunction</span></a>:()&nbsp;&#8209;&gt;&nbsp;<span class="type">Dynamic</span></code></h3><div class="doc"><p>A function that returns the day value to validate. It's recommended to
+use <code>yearValueFunction</code> instead of <code>yearProperty</code> because reflection
+is used with <code>yearProperty</code>, which could result in issues if Dead Code
+Elimination (DCE) is enabled.</p></div></div></div>  <div class="inherited-fields well"><h3 class="section">Inherited Variables</h3><div class="fields"><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="feathers.validators.Validator - The Validator class is the base class for all Flex validators." href="../../feathers/validators/Validator.html">Validator</a></h4><div style="display:none"><div class="field "><a name="enabled"></a><h3 class="anchor"><code><a href="#enabled"><span class="identifier">enabled</span></a>:<span class="type">Bool</span></code></h3><div class="doc"><p>Setting this value to <code>false</code> will stop the validator
+from performing validation. 
+When a validator is disabled, it dispatch no events, 
+and the <code>validate()</code> method returns null.
+*</p></div></div><div class="field "><a name="listener"></a><h3 class="anchor"><code><a href="#listener"><span class="identifier">listener</span></a>:<span class="type">Dynamic</span></code></h3><div class="doc"><p>Specifies the validation listener.</p>
+<p>If you do not specify a listener,
+Flex uses the value of the <code>source</code> property. 
+After Flex determines the source component,
+it changes the border color of the component,
+displays an error message for a failure,
+or hides any existing error message for a successful validation.</p></div></div><div class="field "><a name="property"></a><h3 class="anchor"><code><a href="#property"><span class="identifier">property</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>A String specifying the name of the property of the <code>source</code> object that
+contains the value to validate. Setting <code>property</code> is optional, but if
+you specify <code>source</code>, you should set a value for either <code>property</code> or
+<code>valueFunction</code> as well.</p>
+<p>Reading the <code>property</code> uses reflection, which may not work if Dead Code
+Elimination (DCE) is enabled. The <code>property</code> property is included for
+backwards compatibility with the Flex API, but the new <code>valueFunction</code>
+is now recommended instead.</p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>valueFunction</code></p></div></li></ul></div></div><div class="field "><a name="required"></a><h3 class="anchor"><code><a href="#required"><span class="identifier">required</span></a>:<span class="type">Bool</span></code></h3><div class="doc"><p>If <code>true</code>, specifies that a missing or empty
+value causes a validation error.</p></div></div><div class="field "><a name="requiredFieldError"></a><h3 class="anchor"><code><a href="#requiredFieldError"><span class="identifier">requiredFieldError</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Error message when a value is missing and the 
+<code>required</code> property is <code>true</code>. </p></div></div><div class="field "><a name="source"></a><h3 class="anchor"><code><a href="#source"><span class="identifier">source</span></a>:<span class="type">Dynamic</span></code></h3><div class="doc"><p>Specifies the object containing the property to validate. 
+Set this to an instance of a component or a data model. 
+You use data binding syntax in MXML to specify the value.
+This property supports dot-delimited Strings
+for specifying nested properties. </p>
+<p>If you specify a value to the <code>source</code> property,
+then you should specify a value to either the <code>property</code>
+property or the <code>valueFunction</code> property as well. 
+The <code>source</code> property is optional.</p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>property</code></p></div></li><li><div class="inline-content"><p><code>valueFunction</code></p></div></li></ul></div></div><div class="field "><a name="trigger"></a><h3 class="anchor"><code><a href="#trigger"><span class="identifier">trigger</span></a>:<span class="type">IEventDispatcher</span></code></h3><div class="doc"><p>Specifies the component generating the event that triggers the validator. 
+If omitted, by default Flex uses the value of the <code>source</code> property.
+When the <code>trigger</code> dispatches a <code>triggerEvent</code>,
+validation executes.</p></div></div><div class="field "><a name="triggerEvent"></a><h3 class="anchor"><code><a href="#triggerEvent"><span class="identifier">triggerEvent</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Specifies the event that triggers the validation. 
+If omitted, Flex uses the <code>valueCommit</code> event. 
+Flex dispatches the <code>valueCommit</code> event
+when a user completes data entry into a control.
+Usually this is when the user removes focus from the component, 
+or when a property value is changed programmatically.
+If you want a validator to ignore all events,
+set <code>triggerEvent</code> to the empty string ("").</p></div></div><div class="field "><a name="valueFunction"></a><h3 class="anchor"><code><a href="#valueFunction"><span class="identifier">valueFunction</span></a>:()&nbsp;&#8209;&gt;&nbsp;<span class="type">Dynamic</span></code></h3><div class="doc"><p>A function that returns the value to validate. It's recommended to use
+<code>valueFunction</code> instead of <code>property</code> because reflection is used with
+<code>property</code>, which could result in issues if Dead Code Elimination (DCE)
+is enabled.</p></div></div></div></div><h3 class="section">Inherited Methods</h3><div class="fields"><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="feathers.validators.Validator - The Validator class is the base class for all Flex validators." href="../../feathers/validators/Validator.html">Validator</a></h4><div style="display:none"><div class="field "><a name="validate"></a><h3 class="anchor"><code><span class="label label-meta label-meta-value" title="Used to store default values for fields and function arguments.">@:value({ suppressEvents : false, value : null })</span><a href="#validate"><span class="identifier">validate</span></a>(<span style="white-space:nowrap">?value:<span class="type">Dynamic</span>,</span> <span style="white-space:nowrap">suppressEvents:<span class="type">Bool</span> = false</span>):<span class="type">ValidationResultEvent</span></code></h3><div class="doc"><p>Performs validation and optionally notifies
+the listeners of the result. </p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th style="width:25%;"><code>value</code></th><td><p>Optional value to validate.
+If null, then the validator uses the <code>source</code> and
+<code>property</code> properties to determine the value.
+If you specify this argument, you should also set the
+<code>listener</code> property to specify the target component
+for any validation error messages.</p></td></tr><tr><th style="width:25%;"><code>suppressEvents</code></th><td><p>If <code>false</code>, then after validation,
+the validator will notify the listener of the result.</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>A ValidationResultEvent object
+containing the results of the validation. 
+For a successful validation, the
+<code>ValidationResultEvent.results</code> Array property is empty. 
+For a validation failure, the
+<code>ValidationResultEvent.results</code> Array property contains
+one ValidationResult object for each field checked by the validator, 
+both for fields that failed the validation and for fields that passed. 
+Examine the <code><a href="../../feathers/validators/ValidationResult.html#isError">ValidationResult.isError</a></code>
+property to determine if the field passed or failed the validation. </p></div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code>feathers.events.ValidationResultEvent</code></p></div></li><li><div class="inline-content"><p><code><a href="../../feathers/validators/ValidationResult.html#ValidationResult">feathers.validators.ValidationResult</a></code></p></div></li></ul></div></div></div></div></div></div></div></div></div><footer class="section site-footer" style="background:#FAFAFA"><div class="container"><div class="copyright"><p style="color:#292522"><a href="https://feathersui.com/">Feathers UI</a> — Copyright &copy; 2022 Bowler Hat LLC</p></div></div></footer><script src="../..//highlighter.js"></script><link href="../../highlighter.css" rel="stylesheet"/></body></html>
