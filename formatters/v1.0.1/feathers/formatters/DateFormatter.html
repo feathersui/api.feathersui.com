@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><!-- use theme color or fallback -->
+<!--use textcolor from settings, otherwise create a contrasting color to theme color-->
+<head><meta charset="utf-8"/><link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/><link href="../../bootstrap/css/bootstrap-select.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,600italic,400" rel="stylesheet" type="text/css"/><link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"/><script src="../../jquery-1.9.1.min.js"></script><script src="../../bootstrap/js/bootstrap.min.js"></script><script src="../../bootstrap/js/bootstrap-select.min.js"></script><link href="../../styles.css" rel="stylesheet"/><link href="../../extra-styles.css" rel="stylesheet"/><link href="../../haxe-nav.css" rel="stylesheet"/><link href="../../dark-mode.css" rel="stylesheet"/><script>var dox = {rootPath: "../../",platforms: ["types"]};</script><script src="../../nav.js"></script><script src="../../index.js"></script><link rel="icon" href="../../favicon.ico" type="image/x-icon"/><title>feathers.formatters.DateFormatter - Feathers UI Formatters API Reference (Haxe/OpenFL)</title><meta name="description" content="The DateFormatter class uses a format String to return a formatted date and time String
+from an input String or a Date object.
+You can create many variations easily, including international formats."/></head><body><script>/* Here to prevent flash of unstyled content */let systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;if ((!localStorage.theme && systemDarkMode) || localStorage.theme == "dark") {document.body.style.backgroundColor = "#111";document.body.style.opacity = "0";document.addEventListener("DOMContentLoaded", function(event) {toggleTheme();document.body.style.backgroundColor = "";document.body.style.opacity = "";});}</script><style>
+.navbar .brand {
+	display: inline-block;
+	float: none;
+	text-shadow: 0 0 0 transparent;
+</style><nav class="nav"><div class="navbar navbar-static-top"><div class="navbar-inner" style="background:#FAFAFA; border-bottom:1px solid rgba(0,0,0,.09)"><div class="container"><a class="brand" style="color:#292522" href="../../">Feathers UI Formatters API Reference (Haxe/OpenFL)</a><a href="#" id="theme-toggle" style="color:#292522" onclick="toggleTheme()" title="Toggle Dark Mode"><i class="fa fa-moon-o"></i></a></div></div></div></nav><div class="container main-content"><div class="row-fluid"><div class="span3"><div class="well sidebar-nav"><form class="form-search" id="searchForm"><div class="input-prepend input-block-level"><span class="add-on"><i class="fa fa-search"></i></span><input id="search" type="text" placeholder="Filter (Ctrl+P)" autocomplete="off"/></div></form></div><div class="well sidebar-nav" id="explorer"><div id="nav"></div></div></div><div class="span9"><div class="page-header"><span class="viewsource"><a href="https://github.com/feathersui/feathersui-formatters/tree/v1.0.1/src/feathers/formatters/DateFormatter.hx" class="btn btn-medium"><i class="fa fa-eye"></i> View source</a></span><h1><small>class</small> DateFormatter</h1><h4><small>package <a href="../../index.html">feathers.formatters</a></small></h4><h4><small>extends <a class="type" title="feathers.formatters.Formatter - The Formatter class is the base class for all data formatters." href="../../feathers/formatters/Formatter.html">Formatter</a></small></h4>    </div><div class="body"><div class="doc doc-main"><p>The DateFormatter class uses a format String to return a formatted date and time String
+from an input String or a Date object.
+You can create many variations easily, including international formats.</p>
+<p>If an error occurs, an empty String is returned and a String describing 
+the error is saved to the <code>error</code> property. The <code>error</code> 
+property can have one of the following values:</p><ul><li><code>"Invalid value"</code> means a value that is not a Date object or a 
+is not a recognized String representation of a date is
+passed to the <code>format()</code> method. (An empty argument is allowed.)</li><li><code>"Invalid format"</code> means either the <code>formatString</code> 
+property is set to empty (""), or there is less than one pattern letter 
+in the <code>formatString</code> property.</li></ul>
+<p>The <code>parseDateString()</code> method uses the feathers.formatters.DateBase class
+to define the localized string information required to convert 
+a date that is formatted as a String into a Date object.</p><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/formatters/DateBase.html#DateBase">feathers.formatters.DateBase</a></code></p></div></li></ul></div><h3 class="section">Static methods</h3><div class="fields"><div class="field "><a name="parseDateString"></a><h3 class="anchor"><code><span class="label label-meta label-meta-value" title="Used to store default values for fields and function arguments.">@:value({ format : null })</span><span class="label label-static">static</span><a href="#parseDateString"><span class="identifier">parseDateString</span></a>(<span style="white-space:nowrap">str:<span class="type">String</span>,</span> <span style="white-space:nowrap">?format:<span class="type">String</span></span>):<span class="type">Date</span></code></h3><div class="doc"><p>Converts a date that is formatted as a String into a Date object.
+Month and day names must match the names in feathers.formatters.DateBase.</p>
+<p>The hour value in the String must be between 0 and 23, inclusive. 
+The minutes and seconds value must be between 0 and 59, inclusive.
+The following example uses this method to create a Date object:</p>
+<pre><code class="prettyprint haxe">var myDate:Date = DateFormatter.parseDateString("2009-12-02 23:45:30");</code></pre>
+<p>The optional format property is use to work out which is likly to be encountered
+first a month or a date of the month for date where it may not be obvious which
+comes first.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th style="width:25%;"><code>str</code></th><td><p>Date that is formatted as a String. </p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>Date object.</p></div><p class="javadoc">See also:</p><ul><li><div class="inline-content"><p><code><a href="../../feathers/formatters/DateBase.html#DateBase">feathers.formatters.DateBase</a></code></p></div></li></ul></div></div></div><h3 class="section">Constructor</h3><div class="fields"><div class="field "><a name="new"></a><h3 class="anchor"><code><span class="label label-meta label-meta-value" title="Used to store default values for fields and function arguments.">@:value({ formatString : null })</span><a href="#new"><span class="identifier">new</span></a>(<span style="white-space:nowrap">?formatString:<span class="type">String</span></span>)</code></h3><div class="doc"><p>Constructor.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th style="width:25%;"><code>formatString</code></th><td><p>Date format pattern is set to this DateFormatter.</p></td></tr></table></div></div></div><h3 class="section">Variables</h3><div class="fields"><div class="field "><a name="formatString"></a><h3 class="anchor"><code><a href="#formatString"><span class="identifier">formatString</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>The mask pattern.</p>
+<p>You compose a pattern String using specific uppercase letters,
+for example: YYYY/MM.</p>
+<p>The DateFormatter pattern String can contain other text
+in addition to pattern letters.
+To form a valid pattern String, you only need one pattern letter.</p>
+<p>The following table describes the valid pattern letters:</p>
+<p><strong>Y</strong></p>
+<p>Year. If the number of pattern letters is two, the year is 
+truncated to two digits; otherwise, it appears as four digits. 
+The year can be zero-padded, as the third example shows in the 
+following set of examples: </p><ul><li>YY = 05</li><li>YYYY = 2005</li><li>YYYYY = 02005</li></ul>
+<p><strong>M</strong></p>
+<p>Month in year. The format depends on the following criteria:</p><ul><li>If the number of pattern letters is one, the format is 
+interpreted as numeric in one or two digits.</li><li>If the number of pattern letters is two, the format 
+is interpreted as numeric in two digits.</li><li>If the number of pattern letters is three, 
+the format is interpreted as short text.</li><li>If the number of pattern letters is four, the format 
+is interpreted as full text.</li></ul>
+<p>Examples:</p><ul><li>M=  7</li><li>MM = 07</li><li>MMM = Jul</li><li>MMMM = July</li></ul>
+<p><strong>D</strong></p>
+<p>Day in month. While a single-letter pattern string for day is valid, 
+you typically use a two-letter pattern string.</p>
+<p>Examples:</p><ul><li>D = 4</li><li>DD = 04</li><li>DD = 10</li></ul>
+<p><strong>E</strong></p>
+<p>Day in week. The format depends on the following criteria:</p><ul><li>If the number of pattern letters is one, the format is 
+interpreted as numeric in one or two digits.</li><li>If the number of pattern letters is two, the format is interpreted 
+as numeric in two digits.</li><li>If the number of pattern letters is three, the format is interpreted 
+as short text. </li><li>If the number of pattern letters is four, the format is interpreted 
+as full text. </li></ul>
+<p>Examples:</p><ul><li>E = 1</li><li>EE = 01</li><li>EEE = Mon</li><li>EEEE = Monday</li></ul>
+<p><strong>A</strong></p>
+<p>am/pm indicator.</p>
+<p><strong>J</strong></p>
+<p>Hour in day (0-23).</p>
+<p><strong>H</strong></p>
+<p>Hour in day (1-24).</p>
+<p><strong>K</strong></p>
+<p>Hour in am/pm (0-11).</p>
+<p><strong>L</strong></p>
+<p>Hour in am/pm (1-12).</p>
+<p><strong>N</strong></p>
+<p>Minute in hour.</p>
+<p>Examples:</p><ul><li>N = 3</li><li>NN = 03</li></ul>
+<p><strong>S</strong></p>
+<p>Second in minute. </p>
+<p>Example:</p><ul><li>SS = 30</li></ul>
+<p><strong>Q</strong></p>
+<p>Millisecond in second</p>
+<p>Example:</p><ul><li>QQ = 78</li><li>QQQ = 078</li></ul>
+<p><strong>O</strong></p>
+<p>Timezone offset</p>
+<p>Example:</p><ul><li>O = +7</li><li>OO = -08</li><li>OOO = +4:30</li><li>OOOO = -08:30</li></ul>
+<p><strong>Z</strong></p>
+<p>Timezone name</p>
+<p>Example:</p><ul><li>Z = GMT</li></ul>
+<p><strong>Other text</strong></p>
+<p>You can add other text into the pattern string to further 
+format the string. You can use punctuation, numbers, 
+and all lowercase letters. You should avoid uppercase letters 
+because they may be interpreted as pattern letters.</p>
+<p>Example:</p><ul><li>EEEE, MMM. D, YYYY at L:NN:QQQ A = Tuesday, Sept. 8, 2005 at 1:26:012 PM</li></ul></div></div></div><h3 class="section">Methods</h3><div class="fields"><div class="field "><a name="format"></a><h3 class="anchor"><code><a href="#format"><span class="identifier">format</span></a>(<span style="white-space:nowrap">value:<span class="type">Dynamic</span></span>):<span class="type">String</span></code></h3><div class="doc"><p>Generates a date-formatted String from either a date-formatted String or a Date object. 
+The <code>formatString</code> property
+determines the format of the output String.
+If <code>value</code> cannot be formatted, return an empty String 
+and write a description of the error to the <code>error</code> property.</p><p class="javadoc">Parameters:</p><table class="table table-bordered params"><tr><th style="width:25%;"><code>value</code></th><td><p>Date to format. This can be a Date object,
+or a date-formatted String such as "Thursday, April 22, 2004".</p></td></tr></table><p class="javadoc">Returns:</p><div class="indent inline-content"><p>Formatted String. Empty if an error occurs. A description 
+of the error condition is written to the <code>error</code> property.</p></div></div></div></div>  <div class="inherited-fields well"><h3 class="section">Inherited Variables</h3><div class="fields"><h4><a href="#" class="expand-button"><i class="fa fa-arrow-circle-o-right"></i></a> Defined by <a class="type" title="feathers.formatters.Formatter - The Formatter class is the base class for all data formatters." href="../../feathers/formatters/Formatter.html">Formatter</a></h4><div style="display:none"><div class="field "><a name="error"></a><h3 class="anchor"><code><a href="#error"><span class="identifier">error</span></a>:<span class="type">String</span></code></h3><div class="doc"><p>Description saved by the formatter when an error occurs.
+For the possible values of this property,
+see the description of each formatter.</p>
+<p>Subclasses must set this value in the <code>format()</code> method.</p></div></div></div></div><h3 class="section">Inherited Methods</h3><div class="fields"><div style="display:none"></div></div></div></div></div></div></div><footer class="section site-footer" style="background:#FAFAFA"><div class="container"><div class="copyright"><p style="color:#292522"><a href="https://feathersui.com/">Feathers UI</a> — Copyright &copy; 2023 Bowler Hat LLC</p></div></div></footer><script src="../..//highlighter.js"></script><link href="../../highlighter.css" rel="stylesheet"/></body></html>
