@@ -11,6 +11,8 @@ let rootPath = rootDirName;
 if (!path.isAbsolute(rootPath)) {
 	rootPath = path.resolve(process.cwd(), rootPath);
 }
+rootPath = path.normalize(rootPath);
+rootDirName = path.basename(rootPath);
 
 if (!fs.existsSync(rootPath)) {
 	console.error(`Path does not exist: ` + rootPath);
@@ -25,14 +27,15 @@ let sitemap = `<?xml version="1.0" encoding="utf-8"?>
 
 function addFilesFromDirectory(dirPath, baseUrlPathname) {
 	for (const currentFileName of fs.readdirSync(dirPath)) {
-		const currentPath = path.resolve(dirPath, currentFileName)
-		if (fs.statSync(currentPath).isDirectory()) {
-			addFilesFromDirectory(currentPath, baseUrlPathname + "/" + currentFileName);
+		const currentFilePath = path.resolve(dirPath, currentFileName);
+		const currentURLPath = `${baseUrlPathname.length > 0 ? baseUrlPathname + "/" : ""}${currentFileName}`;
+		if (fs.statSync(currentFilePath).isDirectory()) {
+			addFilesFromDirectory(currentFilePath, currentURLPath);
 			continue;
 		}
 		if (path.extname(currentFileName) === ".html") {
 			sitemap += `  <url>
-    <loc>https://api.feathersui.com/${baseUrlPathname}/${currentFileName}</loc>
+    <loc>https://api.feathersui.com/${currentURLPath}</loc>
     <lastmod>${lastMod.toISOString()}</lastmod>
   </url>
 `;
@@ -40,7 +43,7 @@ function addFilesFromDirectory(dirPath, baseUrlPathname) {
 	}
 }
 
-addFilesFromDirectory(rootPath, rootDirName);
+addFilesFromDirectory(rootPath, "");
 
 sitemap += `</urlset>`;
 
