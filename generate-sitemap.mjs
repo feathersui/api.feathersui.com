@@ -27,6 +27,10 @@ let sitemap = `<?xml version="1.0" encoding="utf-8"?>
 
 function addFilesFromDirectory(dirPath, baseUrlPathname) {
 	for (const currentFileName of fs.readdirSync(dirPath)) {
+		if (currentFileName.startsWith(".")) {
+			// ignore hidden/config files
+			continue;
+		}
 		const currentFilePath = path.resolve(dirPath, currentFileName);
 		const currentURLPath = `${baseUrlPathname.length > 0 ? baseUrlPathname + "/" : ""}${currentFileName}`;
 		if (fs.statSync(currentFilePath).isDirectory()) {
