@@ -5,6 +5,9 @@ RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 
+# redirect /premium-components/ index to a marketing page
+RewriteRule ^/?premium-components/?$ https://feathersui.com/learn/haxe-openfl/premium-components/ [R=301,L]
+
 # redirect / to /current/
 RewriteRule ^/?$ /current/ [R]
 
