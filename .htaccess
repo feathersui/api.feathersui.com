@@ -14,3 +14,10 @@ RewriteRule ^/?$ /current/ [R]
 # redirect /current/ to actual path of current version
 RewriteRule ^/?current(/[A-Za-z0-9\-/.]*)?$ /v1.3.0$1 [R=307,L]
 </IfModule>
+
+<IfModule mod_headers.c>
+Header set X-Frame-Options "SAMEORIGIN"
+Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+Header set X-Content-Type-Options "nosniff"
+Header set Content-Security-Policy "img-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://netdna.bootstrapcdn.com; frame-src 'self'; object-src 'none';"
+</IfModule>
