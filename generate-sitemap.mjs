@@ -47,7 +47,20 @@ function addFilesFromDirectory(dirPath, baseUrlPathname) {
 	}
 }
 
-addFilesFromDirectory(rootPath, "");
+// include only the latest versions of each library in the sitemap
+// because google doesn't like duplicate content
+const currentVersion = "v1.3.1";
+addFilesFromDirectory(path.join(rootPath, currentVersion), currentVersion);
+const libraries = [
+	path.join("amfio", "v1.0.1"),
+	path.join("feathersui-cairngorm", "v1.0.0"),
+	path.join("formatters", "v1.0.1"),
+	path.join("rpc-services", "v1.0.3"),
+	path.join("validators", "v1.0.1"),
+]
+for (const lib of libraries) {
+	addFilesFromDirectory(path.join(rootPath, lib), lib);
+}
 
 sitemap += `</urlset>`;
 
